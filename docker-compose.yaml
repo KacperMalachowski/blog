@@ -5,7 +5,7 @@ networks:
     external: true
 
 services:
-  td2-tools:
+  personal-page:
     image: ${IMAGE_NAME:-ghcr.io/kacpermalachowski/personal-page:latest}
     networks:
       - traefik-public
