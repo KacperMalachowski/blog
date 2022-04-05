@@ -1,0 +1,142 @@
+name: Continous Deployment Workflow
+on: [push]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ghcr.io/kacpermalachowski/${{ github.event.repository.name }}:${{ github.sha }}
+  IMAGE_TAG: ${{ github.sha }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Docker Image
+        run: docker build -t ${{ env.IMAGE_NAME }} --target builder .
+      - name: Save Docker Image
+        run: docker save ${{ env.IMAGE_NAME }} > ${{ github.event.repository.name }}.tar.gz
+      - name: Cache Docker Image
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-docker-image
+        with:
+          path: ${{ github.event.repository.name }}.tar.gz
+          key: ${{ github.event.repository.name }}-${{ env.IMAGE_TAG }}
+      
+
+  test-unit:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Cache Docker Image
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-docker-image
+        with:
+          path: ${{ github.event.repository.name }}.tar.gz
+          key: ${{ github.event.repository.name }}-${{ env.IMAGE_TAG }}
+          restore-keys: |
+            ${{ github.event.repository.name }}-${{ env.IMAGE_TAG }}
+            ${{ github.event.repository.name }}-
+      - name: Load Docker Image
+        run: docker load < ${{ github.event.repository.name }}.tar.gz
+      - name: Run unit tests
+        run: docker run --rm ${{ env.IMAGE_NAME }} yarn test
+
+  test-e2e:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache Docker Image
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-docker-image
+        with:
+          path: ${{ github.event.repository.name }}.tar.gz
+          key: ${{ github.event.repository.name }}-${{ env.IMAGE_TAG }}
+          restore-keys: |
+            ${{ github.event.repository.name }}-${{ env.IMAGE_TAG }}
+            ${{ github.event.repository.name }}-
+      - name: Load Docker Image
+        run: docker load < ${{ github.event.repository.name }}.tar.gz
+      - name: Run e2e tests
+        run: |
+          docker network create --driver bridge test-net
+          docker run -d --name personal-page --network test-net ${{ env.IMAGE_NAME }} yarn dev
+          docker run -v $PWD:/e2e -w /e2e --network test-net --entrypoint cypress cypress/included:9.5.1 run --project . --config baseUrl=http://personal-page:3000
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+  deliver:
+    runs-on: ubuntu-latest
+    needs: [build,test-unit,test-e2e]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache Docker Image
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-docker-image
+        with:
+          path: ${{ github.event.repository.name }}.tar.gz
+          key: ${{ github.event.repository.name }}-${{ env.IMAGE_TAG }}
+          restore-keys: |
+            ${{ github.event.repository.name }}-${{ env.IMAGE_TAG }}
+            ${{ github.event.repository.name }}-
+      - name: Load Docker Image
+        run: docker load < ${{ github.event.repository.name }}.tar.gz
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build prod Docker Image
+        run: docker build -t ${{ env.IMAGE_NAME }} --cache-from ${{ env.IMAGE_NAME }} .
+      - name: Push prod Docker Image
+        run: docker push ${{ env.IMAGE_NAME }}
+      - name: Tag as latest
+        run: docker tag ${{ env.IMAGE_NAME }} ghcr.io/kacpermalachowski/${{ github.event.repository.name }}:latest
+      - name: Push latest
+        run: docker push ghcr.io/kacpermalachowski/${{ github.event.repository.name }}:latest
+
+
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build,deliver]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: Copy files to remote
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: docker-compose.yaml
+          remote: tmp/docker-compose.yaml
+          username: deployer
+          host: ${{ secrets.REMOTE_HOST }}
+          port: ${{ secrets.REMOTE_PORT }}
+          privateKey: ${{ secrets.DEPLOYER_SSH_PRIV_KEY }}
+          rmRemote: true
+      - name: Execute remote commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          port: ${{ secrets.REMOTE_PORT }}
+          username: deployer
+          key: ${{ secrets.DEPLOYER_SSH_PRIV_KEY }}
+          script: |
+            echo ${{ secrets.GITHUB_TOKEN }} | docker login --username ${{ github.actor }} --password-stdin ghcr.io
+            echo ${{ secrets.GITHUB_TOKEN }} | docker login --username ${{ github.actor }} --password-stdin https://ghcr.io
+            IMAGE_NAME="${{ env.IMAGE_NAME }}" docker stack deploy --prune --with-registry-auth --resolve-image=always --compose-file tmp/docker-compose.yaml td2-tools
