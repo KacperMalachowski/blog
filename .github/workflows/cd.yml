@@ -140,4 +140,4 @@ jobs:
             echo ${{ secrets.GITHUB_TOKEN }} | docker login --username ${{ github.actor }} --password-stdin ghcr.io
             echo ${{ secrets.GITHUB_TOKEN }} | docker login --username ${{ github.actor }} --password-stdin https://ghcr.io
             docker pull ${{ env.IMAGE_NAME }}
-            IMAGE_NAME="${{ env.IMAGE_NAME }}" docker stack deploy --prune --with-registry-auth --resolve-image=always --compose-file tmp/docker-compose.yaml personal-page
+            IMAGE_NAME="${{ env.IMAGE_NAME }}" GRAPHQL_URL_ENDPOINT=${{ secrets.GRAPHCMS_ENDPOINT }} docker stack deploy --prune --with-registry-auth --resolve-image=always --compose-file tmp/docker-compose.yaml personal-page

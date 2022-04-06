@@ -7,6 +7,8 @@ networks:
 services:
   personal-page:
     image: ${IMAGE_NAME:-ghcr.io/kacpermalachowski/personal-page:latest}
+    environment:
+      GRAPHQL_URL_ENDPOINT: ${GRAPHQL_URL_ENDPOINT}
     networks:
       - traefik-public
     ports:
