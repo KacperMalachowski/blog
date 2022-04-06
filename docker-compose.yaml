@@ -38,4 +38,4 @@ services:
         - traefik.http.routers.kacpermalachowski-https.entrypoints=https
         - traefik.http.routers.kacpermalachowski-https.tls=true
         - traefik.http.routers.kacpermalachowski-https.tls.certresolver=le
-        - traefik.http.services.td2-tools.loadbalancer.server.port=3000
+        - traefik.http.services.kacpermalachowski.loadbalancer.server.port=3000
