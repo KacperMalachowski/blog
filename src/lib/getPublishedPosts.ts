@@ -1,19 +1,10 @@
-import { GraphQLClient } from "graphql-request";
+import GraphCMSPostType from "../types/GraphCMSPostType";
+import { graphcms } from "./graphqlClients";
 
-const graphcms = process.env.NEXT_CMS_GCMS_AUTH_TOKEN
-  ? new GraphQLClient(process.env.GRAPHQL_URL_ENDPOINT!, {
-      headers: {
-        authorization: `Bearer ${process.env.NEXT_CMS_GCMS_DEV_AUTH_TOKEN}`,
-      },
-    })
-  : new GraphQLClient(process.env.GRAPHQL_URL_ENDPOINT!);
-
-console.log(process.env.NEXT_CMS_GCMS_DEV_AUTH_TOKEN)
-
-export const getPublishedPosts = async (): Promise<graphcmsPostType[]> => {
+export const getPublishedPosts = async (): Promise<GraphCMSPostType[]> => {
   const { posts } = await graphcms.request(
     `
-    query Posts() {
+    query Posts {
       posts {
         id
         title
@@ -39,21 +30,28 @@ export const getPublishedPosts = async (): Promise<graphcmsPostType[]> => {
   return posts;
 };
 
-export type graphcmsPostType = {
-  id: string;
-  title: string;
-  excerpt: string;
-  content: {
-    html: string;
-  };
-  slug: string;
-  coverImaage: {
-    id: string;
-    url: string;
-  };
-  author: {
-    id: string;
-    name: string;
-  };
-  date: number;
-};
+export const getPostBySlug = async (
+  slug: string
+): Promise<{ post: GraphCMSPostType }> =>
+  await graphcms.request(`
+query Post {
+  post(where: {slug: "${slug}"}) {
+    id
+    title
+    excerpt
+    slug
+    coverImage {
+      id
+      url
+    }
+    content {
+      html
+    }
+    author {
+      id
+      name
+    }
+    date
+  }
+}
+`);
