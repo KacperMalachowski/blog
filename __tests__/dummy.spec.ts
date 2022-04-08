@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react";
 
-it('true is truthy', () => {
+it("true is truthy", () => {
   expect(true).toBeTruthy();
-})
+});

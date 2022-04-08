@@ -7,4 +7,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.statusCode = 200;
   res.setHeader("content-type", "application/rss+xml");
   res.end(feed.rss2());
-}
+};
