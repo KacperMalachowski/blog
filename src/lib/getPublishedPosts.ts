@@ -14,9 +14,6 @@ export const getPublishedPosts = async (): Promise<GraphCMSPostType[]> => {
           id
           url
         }
-        content {
-          html
-        }
         author {
           id
           name
@@ -45,7 +42,7 @@ query Post {
       url
     }
     content {
-      html
+      markdown
     }
     author {
       id

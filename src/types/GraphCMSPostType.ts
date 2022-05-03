@@ -3,7 +3,7 @@ type graphcmsPostType = {
   title: string;
   excerpt: string;
   content: {
-    html: string;
+    markdown: string;
   };
   slug: string;
   coverImaage: {
