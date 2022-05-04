@@ -9,7 +9,9 @@ import styled from "styled-components";
 const PostPage: NextPage<Props> = ({ post }) => (
   <HomeLayout>
     <h2 style={{margin: "0 auto;"}}>{post?.title}</h2>
-    <StyledMarkdown children={post?.content.markdown} />
+    <StyledMarkdown>
+      {post.content?.markdown}
+    </StyledMarkdown>
   </HomeLayout>
 );
 
