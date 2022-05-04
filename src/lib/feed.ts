@@ -34,7 +34,7 @@ export const buildFeed = async () => {
       id: url,
       link: url,
       description: post.excerpt,
-      content: post.content?.html,
+      content: post.content?.markdown,
       author: [author],
       date: new Date(post.date),
     });
