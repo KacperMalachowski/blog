@@ -1,4 +1,4 @@
-import { NextPage, NextPageContext } from "next";
+import { NextPage, GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import HomeLayout from "../../layouts/Home";
 import { getPostBySlug } from "../../lib/getPublishedPosts";
@@ -13,9 +13,14 @@ const PostPage: NextPage<Props> = ({ post }) => (
   </HomeLayout>
 );
 
-PostPage.getInitialProps = async ({ query }: NextPageContext) => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { slug } = query;
-  return await getPostBySlug(slug as string);
+  const post =  await getPostBySlug(slug as string);
+  return {
+    props: {
+      post: post.post
+    }
+  }
 };
 
 interface Props {
