@@ -40,9 +40,27 @@ export const Posts: graphcmsPostType[] = [
   }
 ]
 
+interface GetPostBySlugQuery {
+  post: graphcmsPostType
+}
+
+interface GetPostQueryVariables {
+  slug: string
+}
+
 export const graphqlHandlers = [
   graphql.query("Posts", (req, res, ctx) => {
-    console.log(res)
     return res(ctx.data({posts: {...Posts}}));
+  }),
+
+  graphql.query<GetPostBySlugQuery, GetPostQueryVariables>("Post", (req, res, ctx) => {
+
+    const { slug } = req.variables;
+
+    const foundPost: graphcmsPostType = Posts.find((post) => post.slug == slug)!
+
+    return res(
+      ctx.data({post: foundPost})
+    )
   })
 ]

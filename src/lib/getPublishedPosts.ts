@@ -31,8 +31,8 @@ export const getPostBySlug = async (
   slug: string
 ): Promise<{ post: GraphCMSPostType }> =>
   await graphcms.request(`
-query Post {
-  post(where: {slug: "${slug}"}) {
+query Post($slug: String!) {
+  post(where: {slug: $slug}) {
     id
     title
     excerpt
@@ -51,4 +51,6 @@ query Post {
     date
   }
 }
-`);
+`, {
+  slug
+});
