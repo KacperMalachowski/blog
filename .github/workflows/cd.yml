@@ -44,7 +44,6 @@ jobs:
 
   test-e2e:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     needs: build
     steps:
       - uses: actions/checkout@v2
@@ -63,8 +62,8 @@ jobs:
       - name: Run e2e tests
         run: |
           docker network create --driver bridge test-net
-          docker run -d --name personal-page --network test-net ${{ env.IMAGE_NAME }} yarn dev
-          docker run -v $PWD:/e2e -w /e2e --network test-net --entrypoint cypress cypress/included:9.5.1 run --project . --config baseUrl=http://personal-page:3000
+          docker run -d --name personal-page -e GRAPHQL_URL_ENDPOINT=http://cypress:9000 --network test-net ${{ env.IMAGE_NAME }} yarn dev
+          docker run --name cypress -e GRAPHQL_URL_ENDPOINT=http://cypress:9000 -v $PWD:/e2e -w /e2e --network test-net --entrypoint cypress cypress/included:9.5.1 run --project . --config baseUrl=http://personal-page:3000
       - uses: actions/upload-artifact@v2
         if: failure()
         with:

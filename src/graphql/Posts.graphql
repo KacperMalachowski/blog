@@ -1,0 +1,24 @@
+query allPosts(
+  $orderBy: PostOrderByInput
+  $first: Int
+  $skip: Int
+  $where: PostWhereInput
+) {
+  posts(orderBy: $orderBy, first: $first, skip: $skip, where: $where) {
+    ...PostSummary
+  }
+}
+
+fragment PostSummary on Post {
+  id
+  title
+  slug
+  author {
+    name
+  }
+  content {
+    markdown
+  }
+  excerpt
+  date
+}

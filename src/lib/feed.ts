@@ -1,5 +1,5 @@
 import { Feed } from "feed";
-import { getPublishedPosts } from "./getPublishedPosts";
+import { useAllPostsQuery } from "../generated/graphql";
 
 const baseUrl = "https://kacpermalachowski.pl";
 const date = new Date();
@@ -25,7 +25,15 @@ export const buildFeed = async () => {
     author,
   });
 
-  const posts = await getPublishedPosts();
+  const { loading, error, data } = useAllPostsQuery();
+
+  while (loading) {}
+
+  if(error) {
+    throw new Error(error.message);
+  }
+
+  const posts = data?.posts!;
 
   posts.forEach((post) => {
     const url = `${baseUrl}/blog/${post.slug}`;
@@ -33,7 +41,7 @@ export const buildFeed = async () => {
       title: post.title,
       id: url,
       link: url,
-      description: post.excerpt,
+      description: post.excerpt!,
       content: post.content?.markdown,
       author: [author],
       date: new Date(post.date),
