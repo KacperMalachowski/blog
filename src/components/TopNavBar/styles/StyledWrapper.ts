@@ -5,6 +5,7 @@ const StyledWrapped = styled.header`
   height: 40px;
   background-color: #373737;
   box-shadow 0px 0px 30px #fff;
+  display: flex;
 `;
 
 export default StyledWrapped;
