@@ -1,6 +1,6 @@
 FROM golang:1.20-alpine3.18 as builder
 
-RUN apk update && apk add --no-cache git
+RUN apk update && apk add --no-cache git ca-certificates && update-ca-certificates
 
 ENV USER=appuser
 ENV UID=10001 
@@ -13,6 +13,10 @@ RUN adduser \
   --no-create-home \    
   --uid "${UID}" \    
   "${USER}"
+
+WORKDIR $GOPATH/src/github.com/KacperMalachowski/blog/server
+
+COPY . .
 
 RUN go mod download
 RUN go mod verify
