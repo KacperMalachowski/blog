@@ -67,3 +67,6 @@ jobs:
         with:
           url: ${{ matrix.side.update_webhook }}
           method: POST
+          headers: '{ "Host": "github.com" }'
+          timeout: 5000
+          retries: 3
