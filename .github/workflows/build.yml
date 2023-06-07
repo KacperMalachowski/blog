@@ -14,7 +14,20 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        side: [client, server]
+        side: [
+          { 
+            name: 'client', 
+            context: './client', 
+            dockerfile: './client/Dockerfile',
+            update_webhook: 'https://portainer.kacpermalachowski.pl/api/webhooks/1e100b68-8b18-4384-8d2c-4ca1900c27db'
+          },
+          { 
+            name: 'server', 
+            context: './server', 
+            dockerfile: './server/Dockerfile',
+            update_webhook: 'https://portainer.kacpermalachowski.pl/api/webhooks/c4d36782-85ea-4388-bbfb-8b5aa7274c5f'
+          }
+        ]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -38,13 +51,19 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: ghcr.io/${{ github.repository }}/${{ matrix.side }}
+          images: ghcr.io/${{ github.repository }}/${{ matrix.side.name }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
-          context: ./${{ matrix.side }}
-          file: ./${{ matrix.side }}/Dockerfile
+          context: ${{ matrix.side.context }}
+          file: ${{ matrix.side.dockerfile }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Update Image on Cluster
+        uses: indiesdev/curl@v1.1
+        with:
+          url: ${{ matrix.side.update_webhook }}
+          method: POST
