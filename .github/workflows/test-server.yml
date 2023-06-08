@@ -1,0 +1,73 @@
+name: Run Tests for Golang API Server
+
+on:
+  pull_request:
+    paths:
+      - 'server/**'
+      - .github/workflows/test-server.yml
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Newman
+        uses: matt-ball/newman-action@master
+        with:
+          collection: ./server/tests/api-server.postman_collection.json
+          environment: ./server/tests/api-server.postman_environment.json
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+          cache: false
+      - name: Run Tests
+        working-directory: ./server
+        run: go test ./...
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+          cache: false
+      - name: Run Go Format
+        working-directory: ./server
+        run: go fmt ./...
+
+  golangci-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+          cache: false
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: v1.29
+          working-directory: ./server
+          only-new-issues: true
+
+  mod_verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+          cache: false
+      - name: Verify dependencies
+        working-directory: ./server
+        run: go mod verify
