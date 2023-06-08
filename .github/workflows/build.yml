@@ -63,10 +63,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Update Image on Cluster
-        uses: indiesdev/curl@v1.1
+        uses: fjogeleit/http-request-action@v1
         with:
           url: ${{ matrix.side.update_webhook }}
-          method: POST
-          headers: '{ "Host": "github.com" }'
-          timeout: 5000
-          retries: 3
+          method: 'POST'
