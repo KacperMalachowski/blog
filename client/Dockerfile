@@ -12,7 +12,7 @@ RUN npm run build
 
 FROM nginx:1.25.0-alpine3.17
 
-COPY --from=builder /app/dist /var/www/kacpermalachowski.pl/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
