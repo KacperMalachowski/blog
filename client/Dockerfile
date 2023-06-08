@@ -16,5 +16,5 @@ COPY --from=builder /app/dist /var/www/kacpermalachowski.pl/html
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off"]
+CMD ["nginx", "-g", "daemon off;"]
 
