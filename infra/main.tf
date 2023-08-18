@@ -1,18 +1,7 @@
-resource "google_artifact_registry_repository" "website" {
+resource "google_artifact_registry_repository" "main" {
   location      = "europe-central2"
-  repository_id = "blog-website"
-  description   = "Website docker registry"
-  format        = "DOCKER"
-
-  docker_config {
-    immutable_tags = true
-  }
-}
-
-resource "google_artifact_registry_repository" "api" {
-  location      = "europe-central2"
-  repository_id = "blog-api"
-  description   = "API docker registry"
+  repository_id = "blog"
+  description   = "docker registry"
   format        = "DOCKER"
 
   docker_config {
@@ -26,7 +15,7 @@ resource "google_cloud_run_v2_service" "website" {
 
   template {
     containers {
-      image = "${var.google_region}-docker.pkg.dev/${var.google_project_id}/${google_artifact_registry_repository.website.name}"
+      image = "${var.google_region}-docker.pkg.dev/${var.google_project_id}/${google_artifact_registry_repository.main.name}/website"
     }
   }
 }
@@ -37,7 +26,7 @@ resource "google_cloud_run_v2_service" "api_server" {
 
   template {
     containers {
-      image = "${var.google_region}-docker.pkg.dev/${var.google_project_id}/${google_artifact_registry_repository.api.name}"
+      image = "${var.google_region}-docker.pkg.dev/${var.google_project_id}/${google_artifact_registry_repository.main.name}/api"
     }
   }
 }
