@@ -7,7 +7,7 @@ variable "google_project_id" {
 variable "google_region" {
   type        = string
   description = "The region to deploy to"
-  default     = "eu-central2"
+  default     = "europe-central2"
 }
 
 variable "google_zone" {
