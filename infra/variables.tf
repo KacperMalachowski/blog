@@ -18,5 +18,5 @@ variable "google_zone" {
 
 variable "cloudflare_account_id" {
   sensitive = true
-  type = string
+  type      = string
 }
