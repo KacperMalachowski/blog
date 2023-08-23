@@ -1,4 +1,4 @@
-FROM node:18.16-bullseye as builder
+FROM node:18.16-alpine3.18 as builder
 
 WORKDIR /app
 
@@ -10,10 +10,27 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:1.25.0-alpine3.17
+FROM alpine:3.13.2 AS server
 
-COPY ./nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
+RUN apk add gcc musl-dev make perl
 
-CMD ["nginx", "-g", "daemon off;"]
+RUN wget https://busybox.net/downloads/busybox-1.35.0.tar.bz2 \
+  && tar xf busybox-1.35.0.tar.bz2 \
+  && mv /busybox-1.35.0 /busybox
+
+WORKDIR /busybox
+
+COPY .config .
+
+RUN make && make install
+
+RUN adduser -D static
+
+FROM ghcr.io/kacpermalachowski/static-serve
+ENV PORT=8080
+
+WORKDIR /app
+COPY --from=builder /app/dist /app
+
+CMD ["/go/bin/serve", "-p", $PORT]
 
