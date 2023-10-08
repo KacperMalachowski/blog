@@ -40,7 +40,7 @@ jobs:
 
       - id: auth
         name: Authenticate with Google Cloud
-        uses: google-github-actions/auth@v0
+        uses: google-github-actions/auth@v1
         with:
           token_format: access_token
           credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
@@ -55,7 +55,7 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        uses: docker/metadata-action@879dcbb708d40f8b8679d4f7941b938a086e23a7
         with:
           images: europe-central2-docker.pkg.dev/blog-395007/blog/${{ matrix.side.name }}
           tags: |
@@ -64,7 +64,7 @@ jobs:
             type=raw,latest
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09
         with:
           context: ${{ matrix.side.context }}
           file: ${{ matrix.side.dockerfile }}
