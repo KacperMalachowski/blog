@@ -5,6 +5,7 @@ env:
   # If you use private modules you'll need this env variable to use
   # the same ssh-agent socket value across all jobs & steps.
   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+  INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }}
 jobs:
   infracost:
     name: Infracost
@@ -33,8 +34,6 @@ jobs:
 
       # Generate Infracost JSON file as the baseline.
       - name: Generate Infracost cost estimate baseline
-        env:
-          INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }}
         run: |
           infracost breakdown --path=${TF_ROOT} \
                               --format=json \
