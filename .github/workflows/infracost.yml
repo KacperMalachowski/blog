@@ -16,22 +16,8 @@ jobs:
 
     env:
       TF_ROOT: infra
-      # If you're using Terraform Cloud/Enterprise and have variables or private modules stored
-      # on there, specify the following to automatically retrieve the variables:
-      #   INFRACOST_TERRAFORM_CLOUD_TOKEN: ${{ secrets.TFC_TOKEN }}
-      #   INFRACOST_TERRAFORM_CLOUD_HOST: app.terraform.io # Change this if you're using Terraform Enterprise
 
     steps:
-      # If you use private modules, add an environment variable or secret
-      # called GIT_SSH_KEY with your private key, so Infracost can access
-      # private repositories (similar to how Terraform/Terragrunt does).
-      # - name: add GIT_SSH_KEY
-      #   run: |
-      #     ssh-agent -a $SSH_AUTH_SOCK
-      #     mkdir -p ~/.ssh
-      #     echo "${{ secrets.GIT_SSH_KEY }}" | tr -d '\r' | ssh-add -
-      #     ssh-keyscan github.com >> ~/.ssh/known_hosts
-
       - name: Setup Infracost
         uses: infracost/actions/setup@v2
         # See https://github.com/infracost/actions/tree/master/setup for other inputs
@@ -47,6 +33,8 @@ jobs:
 
       # Generate Infracost JSON file as the baseline.
       - name: Generate Infracost cost estimate baseline
+        env:
+          INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }}
         run: |
           infracost breakdown --path=${TF_ROOT} \
                               --format=json \
@@ -64,13 +52,6 @@ jobs:
                           --compare-to=/tmp/infracost-base.json \
                           --out-file=/tmp/infracost.json
 
-      # Posts a comment to the PR using the 'update' behavior.
-      # This creates a single comment and updates it. The "quietest" option.
-      # The other valid behaviors are:
-      #   delete-and-new - Delete previous comments and create a new one.
-      #   hide-and-new - Minimize previous comments and create a new one.
-      #   new - Create a new cost estimate comment on every push.
-      # See https://www.infracost.io/docs/features/cli_commands/#comment-on-pull-requests for other options.
       - name: Post Infracost comment
         run: |
             infracost comment github --path=/tmp/infracost.json \
