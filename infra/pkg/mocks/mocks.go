@@ -1,0 +1,20 @@
+package mocks
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type Mocks int
+
+func New(id int) Mocks {
+	return Mocks(id)
+}
+
+func (mocks Mocks) NewResource(args pulumi.MockResourceArgs) (string, resource.PropertyMap, error) {
+	return args.Name + "_d", args.Inputs, nil
+}
+
+func (mocks Mocks) Call(args pulumi.MockCallArgs) (resource.PropertyMap, error) {
+	return args.Args, nil
+}
