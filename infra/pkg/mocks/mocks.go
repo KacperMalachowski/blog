@@ -12,7 +12,9 @@ func New(id int) Mocks {
 }
 
 func (mocks Mocks) NewResource(args pulumi.MockResourceArgs) (string, resource.PropertyMap, error) {
-	return args.Name + "_d", args.Inputs, nil
+	outputs := args.Inputs.Mappable()
+	outputs["name"] = args.Name
+	return args.Name + "_d", resource.NewPropertyMapFromMap(outputs), nil
 }
 
 func (mocks Mocks) Call(args pulumi.MockCallArgs) (resource.PropertyMap, error) {

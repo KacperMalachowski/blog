@@ -3,7 +3,9 @@ module github.com/kacpermalachowski/personal-blog/infra
 go 1.21.3
 
 require (
+	github.com/pulumi/pulumi-cloudflare/sdk/v3 v3.6.0
 	github.com/pulumi/pulumi-gcp/sdk/v6 v6.67.0
+	github.com/pulumi/pulumi-github/sdk/v5 v5.21.0
 	github.com/pulumi/pulumi/sdk/v3 v3.90.0
 	github.com/stretchr/testify v1.8.4
 )
