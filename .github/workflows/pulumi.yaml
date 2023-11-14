@@ -32,7 +32,7 @@ jobs:
           create_credentials_file: true
       - run: go mod download
         working-directory: infra 
-      - uses: pulumi/actions@v3
+      - uses: pulumi/actions@v4
         with:
           command: ${{ github.event_name == 'pull_request' && 'preview' || 'up' }}
           work-dir: infra
