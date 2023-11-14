@@ -27,7 +27,7 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: /projects/648179098328/locations/global/workloadIdentityPools/github-actions/providers/github
+          workload_identity_provider: projects/648179098328/locations/global/workloadIdentityPools/github-actions/providers/github
           service_account: github-actions@blog-401904.iam.gserviceaccount.com
           create_credentials_file: true
       - run: go mod download
