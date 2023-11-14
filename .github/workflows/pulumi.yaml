@@ -17,6 +17,8 @@ jobs:
   pulumi:
     name: Pulumi ${{ github.event_name == 'pull_request' && 'Preview' || '' }}
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
@@ -25,7 +27,9 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1
         with:
-          credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
+          workload_identity_provider: /projects/648179098328/locations/global/workloadIdentityPools/github-actions/providers/github
+          service_account: github-actions@blog-401904.iam.gserviceaccount.com
+          create_credentials_file: true
       - run: go mod download
         working-directory: infra 
       - uses: pulumi/actions@v3
