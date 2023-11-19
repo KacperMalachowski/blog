@@ -10,7 +10,7 @@ updates:
       interval: "daily"
 
   # Maintain dependencies for npm
-  - package-ecosystem: "npm"
+  - package-ecosystem: "terraform"
     directory: "/"
     schedule:
       interval: "daily"
