@@ -29,8 +29,8 @@ jobs:
         id: auth
         uses: google-github-actions/auth@v0
         with:
-          workload_identity_provider: projects/760775838960/locations/global/workloadIdentityPools/github-action/providers/github
-          service_account: tofu-executor@edplanes.iam.gserviceaccount.com
+          workload_identity_provider: projects/648179098328/locations/global/workloadIdentityPools/github-actions/providers/github
+          service_account: github-actions@blog-401904.iam.gserviceaccount.com
           create_credentials_file: true
       - name: Setup Tofu
         uses: opentofu/setup-opentofu@v1.0.1
