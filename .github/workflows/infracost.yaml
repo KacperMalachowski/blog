@@ -2,8 +2,8 @@ on:
   pull_request:
     paths:
       - '.github/workflows/infracost.yaml'
-      - environments/**
-      - modules/**
+      - tofu/environments/**
+      - tofu/modules/**
 
 jobs:
   infracost:
