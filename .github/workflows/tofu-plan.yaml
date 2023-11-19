@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/tofu-plan
+      - .github/workflows/tofu-plan.yaml
       - tofu/**
 
 jobs:

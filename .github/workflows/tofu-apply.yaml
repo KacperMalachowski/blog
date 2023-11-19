@@ -1,11 +1,11 @@
-name: Tofu Plan
+name: Tofu Apply
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/tofu-plan
+      - .github/workflows/tofu-apply.yaml
       - tofu/**
 
 jobs:
