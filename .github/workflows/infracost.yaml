@@ -14,7 +14,6 @@ jobs:
       pull-requests: write
     env:
       TF_ROOT: tofu
-      INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }}
     steps:
       - name: Setup Infracost
         uses: infracost/actions/setup@v2
