@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Authenticate to Google Cloud
         id: auth
-        uses: google-github-actions/auth@v1
+        uses: google-github-actions/auth@v2
         with:
           workload_identity_provider: ${{ vars.GH_COM_MALACHOWSKI_BLOG_GCP_WORKLOAD_IDENTITY_FEDERATION_PROVIDER }}
           service_account: ${{ vars.GCP_TOFU_PLANNER_SERVICE_ACCOUNT_EMAIL }}
