@@ -1,4 +1,4 @@
-name: Tofu Apply
+name: post-tofu-prod-apply
 
 on:
   push:
