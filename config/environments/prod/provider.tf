@@ -22,5 +22,5 @@ provider "google" {
 }
 
 provider "cloudflare" {
-  
+
 }
