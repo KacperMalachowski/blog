@@ -60,7 +60,7 @@ jobs:
         run: tofu validate
       - name: Plan
         env:
-          CLOUDFLARE_API_KEY: ${{ steps.secrets.outputs.cloudflare-read-zone-token }}
+          CLOUDFLARE_API_TOKEN: ${{ steps.secrets.outputs.cloudflare-read-zone-token }}
           GITHUB_TOKEN: ${{ steps.secrets.outputs.github-variables-access-token }}
         id: plan
         continue-on-error: true
