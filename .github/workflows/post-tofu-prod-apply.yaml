@@ -1,0 +1,57 @@
+name: Tofu Apply
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/tofu-apply.yaml
+      - tofu/**
+
+jobs:
+  apply:
+    name: Apply Change
+    runs-on: ubuntu-latest
+    permissions:
+      contents: "read"
+      id-token: "write"
+      pull-requests: write
+    strategy:
+      matrix:
+        environment: ['prod']
+    defaults:
+      run:
+        working-directory: 'tofu/environments/${{ matrix.environment }}'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v1
+        with:
+          workload_identity_provider: projects/648179098328/locations/global/workloadIdentityPools/github-actions/providers/github
+          service_account: github-actions@blog-401904.iam.gserviceaccount.com
+          create_credentials_file: true
+      - name: Setup Tofu
+        uses: opentofu/setup-opentofu@v1.0.1
+        with:
+          tofu_wrapper: false
+      - name: Format Check
+        id: fmt
+        run: tofu fmt -check
+      - name: Check if directory is not empty
+        id: check
+        run: |
+          if [ "$(ls -A . )" ]; then
+            echo "Directory is not empty"
+          else
+            echo "Directory is empty"
+            exit 1
+          fi
+      - name: Init
+        run: tofu init
+      - name: Validate
+        run: tofu validate
+      - name: Apply
+        run: tofu apply -input=false -auto-approve
+        
