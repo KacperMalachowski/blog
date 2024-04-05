@@ -29,16 +29,19 @@ jobs:
         id: auth
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: projects/648179098328/locations/global/workloadIdentityPools/github-actions/providers/github
-          service_account: github-actions@blog-401904.iam.gserviceaccount.com
-          create_credentials_file: true
+          workload_identity_provider: ${{ vars.GH_COM_MALACHOWSKI_BLOG_GCP_WORKLOAD_IDENTITY_FEDERATION_PROVIDER }}
+          service_account: ${{ vars.GCP_TOFU_EXECUTOR_SERVICE_ACCOUNT_EMAIL }}
+      - name: Retrieve secrets
+        id: secrets
+        uses: google-github-actions/get-secretmanager-secrets@v2
+        with:
+          secrets: |-
+            cloudflare-read-zone-token:${{ vars.GCP_BLOG_PROJECT_ID }}/${{ vars.GCP_CLOUDFLARE_READ_ZONE_TOKEN_SECRET_NAME }}
+            github-variables-access-token:${{ vars.GCP_BLOG_PROJECT_ID}}/${{ vars.GCP_GH_COM_VARIABLES_ACCESS_TOKEN_SECRET_NAME }}
       - name: Setup Tofu
         uses: opentofu/setup-opentofu@v1.0.1
         with:
           tofu_wrapper: false
-      - name: Format Check
-        id: fmt
-        run: tofu fmt -check
       - name: Check if directory is not empty
         id: check
         run: |
@@ -53,5 +56,8 @@ jobs:
       - name: Validate
         run: tofu validate
       - name: Apply
+        env:
+          CLOUDFLARE_API_KEY: ${{ steps.secrets.outputs.cloudflare-read-zone-token }}
+          GITHUB_TOKEN: ${{ steps.secrets.outputs.github-variables-access-token }}
         run: tofu apply -input=false -auto-approve
         
