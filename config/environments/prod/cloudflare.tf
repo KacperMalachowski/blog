@@ -4,16 +4,16 @@ data "cloudflare_zone" "malachowski" {
 
 resource "cloudflare_record" "www_malachowski_pl" {
   zone_id = data.cloudflare_zone.malachowski.id
-  name = "www"
-  value = var.gh_pages_domain_name
-  type = "CNAME"
+  name    = "www"
+  value   = var.gh_pages_domain_name
+  type    = "CNAME"
   proxied = true
 }
 
 resource "cloudflare_record" "root_malachowski_pl" {
   zone_id = data.cloudflare_zone.malachowski.id
-  name = "@"
-  value = var.gh_pages_domain_name
-  type = "CNAME"
+  name    = "@"
+  value   = var.gh_pages_domain_name
+  type    = "CNAME"
   proxied = true
 }
