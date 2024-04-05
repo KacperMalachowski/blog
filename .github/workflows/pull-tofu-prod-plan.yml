@@ -1,3 +1,5 @@
+name: pull-tofu-prod-plan
+
 on:
   pull_request:
     branches:
