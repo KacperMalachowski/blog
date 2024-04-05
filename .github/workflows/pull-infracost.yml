@@ -1,3 +1,5 @@
+name: pull-infracost
+
 on:
   pull_request_target:
 
@@ -8,6 +10,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      id-token: write
     env:
       TF_ROOT: tofu
     steps:
