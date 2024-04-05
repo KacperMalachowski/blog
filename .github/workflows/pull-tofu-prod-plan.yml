@@ -18,7 +18,7 @@ jobs:
         environment: ['prod']
     defaults:
       run:
-        working-directory: 'tofu/environments/${{ matrix.environment }}'
+        working-directory: 'config/environments/${{ matrix.environment }}'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
