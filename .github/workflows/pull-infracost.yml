@@ -1,9 +1,7 @@
+name: pull-infracost
+
 on:
   pull_request_target:
-    paths:
-      - '.github/workflows/infracost.yaml'
-      - tofu/environments/**
-      - tofu/modules/**
 
 jobs:
   infracost:
@@ -12,8 +10,9 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      id-token: write
     env:
-      TF_ROOT: tofu
+      TF_ROOT: config/environments/prod
     steps:
       - name: Authenticate to Google Cloud
         id: auth

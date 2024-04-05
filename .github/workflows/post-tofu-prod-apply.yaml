@@ -1,12 +1,9 @@
-name: Tofu Apply
+name: post-tofu-prod-apply
 
 on:
   push:
     branches:
       - main
-    paths:
-      - .github/workflows/tofu-apply.yaml
-      - tofu/**
 
 jobs:
   apply:
@@ -21,7 +18,7 @@ jobs:
         environment: ['prod']
     defaults:
       run:
-        working-directory: 'tofu/environments/${{ matrix.environment }}'
+        working-directory: 'config/environments/${{ matrix.environment }}'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
