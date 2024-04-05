@@ -9,6 +9,11 @@ terraform {
       source  = "integrations/github"
       version = ">= 6.2.1"
     }
+
+    cloudflare = {
+      source = "cloudflare/cloudflare"
+      version = ">= 4.29.0"
+    }
   }
 }
 
