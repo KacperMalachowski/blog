@@ -24,7 +24,7 @@ resource "google_project_iam_member" "tofu_planner_blog_project_reader" {
   ])
   project = var.tofu_planner_gcp_service_account.project_id
   role    = each.key
-  member  = "serviceAccount:${google_service_account.tofu_executor.email}"
+  member  = "serviceAccount:${google_service_account.tofu_planner.email}"
 }
 
 resource "google_storage_bucket_iam_binding" "tofu_planner_state_bucket_user" {
