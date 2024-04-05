@@ -28,7 +28,6 @@ jobs:
         with:
           workload_identity_provider: ${{ vars.GH_COM_MALACHOWSKI_BLOG_GCP_WORKLOAD_IDENTITY_FEDERATION_PROVIDER }}
           service_account: ${{ vars.GCP_TOFU_PLANNER_SERVICE_ACCOUNT_EMAIL }}
-          create_credentials_file: true
       - name: Retrieve secrets
         id: secrets
         uses: google-github-actions/get-secretmanager-secrets@v2
