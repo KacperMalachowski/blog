@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "./.github/workflows/post-prod-apply.yaml"
+      - "./.github/workflows/post-tofu-prod-apply.yaml"
       - "./**/*.tf"
       - "./**/*.tfvars"
 
