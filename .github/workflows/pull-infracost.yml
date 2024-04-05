@@ -2,6 +2,10 @@ name: pull-infracost
 
 on:
   pull_request_target:
+    paths:
+      - "./.github/workflows/pull-infracost.yml"
+      - "./**/*.tf"
+      - "./**/*.tfvars"
 
 jobs:
   infracost:

@@ -4,6 +4,10 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "./.github/workflows/pull-tofu-prod-plan.yml"
+      - "./**/*.tf"
+      - "./**/*.tfvars"
 
 jobs:
   plan:

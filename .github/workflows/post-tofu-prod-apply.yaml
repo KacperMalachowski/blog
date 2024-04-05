@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "./.github/workflows/post-prod-apply.yaml"
+      - "./**/*.tf"
+      - "./**/*.tfvars"
 
 jobs:
   apply:
