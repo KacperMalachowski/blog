@@ -21,6 +21,7 @@ resource "google_service_account" "tofu_planner" {
 resource "google_project_iam_member" "tofu_planner_blog_project_reader" {
   for_each = toset([
     "roles/viewer",
+    "roles/iam.securityReviewer"
   ])
   project = var.tofu_planner_gcp_service_account.project_id
   role    = each.key
