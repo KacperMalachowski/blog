@@ -14,6 +14,7 @@ outputs:
 
 Paginate: 3
 enableRobotsTXT: true
+googleAnalytics: G-C70SE3595T
 
 markup:
   goldmark:
