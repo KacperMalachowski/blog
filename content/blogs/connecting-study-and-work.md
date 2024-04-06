@@ -1,3 +1,16 @@
+---
+title: "Can you connect work and study?"
+date: 2024-04-06
+draft: false
+author: "Kacper Malachowski"
+tags:
+  - study
+  - work
+  - computer science
+  - work-life balance
+description: "After 3,5 years of studying computer science and nearly 2 years of work as a software developer I will answer the old question: Can you work and study at same time? If yes, then how to."
+---
+
 My story as a real software engineer begins in 2020, when I joined TTSK and TD2 project. TD2 is a train simulator created for free by passionate. It's important because at the same time I started my study at the University of Silesia. 
 
 You can say as TD2 is free so it wasn't much consuming and you will be right! It's significant to mention because after year I resign from work on TD2 project.
