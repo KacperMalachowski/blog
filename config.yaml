@@ -28,6 +28,8 @@ Menus:
       url: /blogs
       weight: 1
 
+enableEmoji: true
+
 params:
   title: Kacper Malachowski
   description: Text about my cool site
