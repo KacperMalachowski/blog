@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: iac
+  cancel-in-progress: false
+
 jobs:
   apply:
     name: Apply Change
