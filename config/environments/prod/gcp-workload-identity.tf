@@ -30,6 +30,10 @@ module "gh_com_kacpermalachowski_blog_worklaod_identity_federation" {
       sa_name   = "projects/${data.google_client_config.gcp.project}/serviceAccounts/${google_service_account.tofu_planner.email}"
       attribute = "subject/repository_id:${data.github_repository.blog.repo_id}:repository_owner_id:${var.github_kacpermalachowski_id}:workflow:pull-infracost"
     },
+    "tofu_planner_ci_drift" = {
+      sa_name   = "projects/${data.google_client_config.gcp.project}/serviceAccounts/${google_service_account.tofu_planner.email}"
+      attribute = "subject/repository_id:${data.github_repository.blog.repo_id}:repository_owner_id:${var.github_kacpermalachowski_id}:workflow:ci-tofu-drift"
+    },
     "tofu_executor_post_prod_apply" = {
       sa_name   = "projects/${data.google_client_config.gcp.project}/serviceAccounts/${google_service_account.tofu_executor.email}"
       attribute = "subject/repository_id:${data.github_repository.blog.repo_id}:repository_owner_id:${var.github_kacpermalachowski_id}:workflow:post-tofu-prod-apply"
