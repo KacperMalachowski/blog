@@ -13,3 +13,19 @@ updates:
         update-types:
         - "minor"
         - "patch"
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    groups:
+      npm-production-dependencies:
+        dependency-type: "production"
+        update-types:
+        - "minor"
+        - "patch"
+      npm-dev-dependencies:
+        dependency-type: "development"
+        update-types:
+        - "minor"
+        - "patch"

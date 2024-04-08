@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-200;
+    @apply transition-colors;
+    @apply duration-200;
+    @apply ease-in-out;
+  }
+
+  .dark body {
+    @apply bg-zinc-900;
+    @apply text-white;
+  }
+}
