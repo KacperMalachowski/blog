@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/terraform,hugo,git,linux,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=terraform,hugo,git,linux,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/terraform,nuxtjs,visualstudiocode,git,linux
+# Edit at https://www.toptal.com/developers/gitignore?templates=terraform,nuxtjs,visualstudiocode,git,linux
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -16,21 +16,6 @@
 *_LOCAL_*.txt
 *_REMOTE_*.txt
 
-### Hugo ###
-# Generated files by hugo
-/public/
-/resources/_gen/
-/assets/jsconfig.json
-hugo_stats.json
-
-# Executable may be added to repository
-hugo.exe
-hugo.darwin
-hugo.linux
-
-# Temporary lock file while building
-/.hugo_build.lock
-
 ### Linux ###
 *~
 
@@ -45,6 +30,20 @@ hugo.linux
 
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
+
+### NuxtJS ###
+# Generated dirs
+dist
+.nuxt
+.nuxt-*
+.output
+.gen
+
+# Node dependencies
+node_modules
+
+# System files
+*.log
 
 ### Terraform ###
 # Local .terraform directories
@@ -101,4 +100,4 @@ terraform.rc
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/terraform,hugo,git,linux,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/terraform,nuxtjs,visualstudiocode,git,linux
