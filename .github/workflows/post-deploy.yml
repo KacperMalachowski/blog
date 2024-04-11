@@ -36,7 +36,7 @@ jobs:
           extended: true
       - name: Setup pages
         id: pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
