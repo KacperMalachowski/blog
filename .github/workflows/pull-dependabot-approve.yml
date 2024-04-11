@@ -9,6 +9,8 @@ jobs:
     permissions:
       pull-requests: write
       contents: write
+      statuses: read
+      actions: read
     if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
