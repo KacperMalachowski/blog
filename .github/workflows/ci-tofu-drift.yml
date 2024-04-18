@@ -46,7 +46,7 @@ jobs:
             cloudflare-read-zone-token:${{ vars.GCP_BLOG_PROJECT_ID }}/${{ vars.GCP_CLOUDFLARE_READ_ZONE_TOKEN_SECRET_NAME }}
             github-variables-access-token:${{ vars.GCP_BLOG_PROJECT_ID}}/${{ vars.GCP_GH_COM_VARIABLES_ACCESS_TOKEN_SECRET_NAME }}
       - name: Setup Tofu
-        uses: opentofu/setup-opentofu@v1.0.1
+        uses: opentofu/setup-opentofu@v1.0.3
         with:
           tofu_wrapper: false
       - name: Init
@@ -67,7 +67,7 @@ jobs:
           fi
           exit $exitcode
       - name: Publish Plan
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.3.2
         with:
           name: plan
           path: plan
