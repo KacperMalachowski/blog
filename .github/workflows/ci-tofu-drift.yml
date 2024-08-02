@@ -67,7 +67,7 @@ jobs:
           fi
           exit $exitcode
       - name: Publish Plan
-        uses: actions/upload-artifact@v4.3.4
+        uses: actions/upload-artifact@v4.3.5
         with:
           name: plan
           path: plan
