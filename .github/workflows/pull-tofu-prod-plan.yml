@@ -40,7 +40,7 @@ jobs:
             cloudflare-read-zone-token:${{ vars.GCP_BLOG_PROJECT_ID }}/${{ vars.GCP_CLOUDFLARE_READ_ZONE_TOKEN_SECRET_NAME }}
             github-variables-access-token:${{ vars.GCP_BLOG_PROJECT_ID}}/${{ vars.GCP_GH_COM_VARIABLES_ACCESS_TOKEN_SECRET_NAME }}
       - name: Setup Tofu
-        uses: opentofu/setup-opentofu@v1.0.4
+        uses: opentofu/setup-opentofu@v1.0.5
         with:
           tofu_wrapper: false
       - name: Format Check
