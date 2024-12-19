@@ -1,13 +1,13 @@
 main:
   - identifier: posts
-    name: Posty
+    name: Posts
     url: /posts/
     weight: 30
   - identifier: about
-    name: O mnie
+    name: About Me
     url: /about/
     weight: 50
   - identifier: archives
-    name: Archiwum
+    name: Archives
     url: /archives/
     weight: 60

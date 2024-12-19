@@ -4,6 +4,7 @@ pagination:
   pagerSize: 5
 theme: PaperMod
 defaultContentLanguage: pl
+defaultContentLanguageInSubdir: true
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -43,17 +44,17 @@ params:
     - name: github
       url: https://github.com/KacperMalachowski
     - name: linkedin
-      url: www.linkedin.com/in/kacper-małachowski-940b6919b
+      url: https://www.linkedin.com/in/kacper-małachowski-940b6919b
     - name: stackoverflow
       url: https://stackoverflow.com/users/23148781/kacper-ma%C5%82achowski
     - name: rss
       url: /index.xml
 
+pygmentsUseClasses: true
+
 permalinks:
   posts: /:year/:month/:slug/
   pages: /:slug/
-
-pygmentsUseClasses: true
 
 markup:
   highlight:

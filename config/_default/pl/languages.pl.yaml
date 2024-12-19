@@ -23,8 +23,9 @@ params:
         url: "/posts/"
       - name: Tagi
         url: "/tags/"
-  
+
   editPost:
     URL: https://github.com/KacperMalachowski/blog/content
     Text: Zasugeruj zmiany
     appendFilePath: true
+

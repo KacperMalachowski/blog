@@ -1,0 +1,32 @@
+contentDir: content/en
+languageName: ":us:"
+languageCode: en
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+
+params:
+  languageAltTitle: English
+  description: Kacper Małachowski - blog about programming, technologies and life
+  keywords: [programming, technologies, life, blog, Kacper Małachowski]
+
+  profileMode:
+    enabled: true
+    title: "Kacper Małachowski"
+    subtitle: "blog about programming, technologies and life"
+    imageUrl: "/images/hero.jpg"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: "Kacper Małachowski"
+    buttons:
+      - name: Posts
+        url: "/posts/"
+      - name: Tags
+        url: "/tags/"
+
+  editPost:
+    URL: https://github.com/KacperMalachowski/blog/content
+    Text: Suggest changes
+    appendFilePath: true
+
