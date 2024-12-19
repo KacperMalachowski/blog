@@ -46,6 +46,8 @@ params:
       url: www.linkedin.com/in/kacper-małachowski-940b6919b
     - name: stackoverflow
       url: https://stackoverflow.com/users/23148781/kacper-ma%C5%82achowski
+    - name: rss
+      url: /index.xml
 
 permalinks:
   posts: /:year/:month/:slug/
