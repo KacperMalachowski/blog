@@ -1,0 +1,59 @@
+baseURL: https://kacpermalachowski.pl/
+title: Kacper Małachowski
+pagination:
+  pagerSize: 5
+theme: PaperMod
+defaultContentLanguage: pl
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: Kacper Małachowski
+  description: Kacper Małachowski - blog o programowaniu, technologiach i życiu
+  author: Kacper Małachowski
+  DateFormat: "02-01-2006"
+  defaultTheme: auto
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCumbs: true
+  ShowCodeCopyButtons: false
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: true
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  socialIcons:
+    - name: github
+      url: https://github.com/KacperMalachowski
+    - name: linkedin
+      url: www.linkedin.com/in/kacper-małachowski-940b6919b
+    - name: stackoverflow
+      url: https://stackoverflow.com/users/23148781/kacper-ma%C5%82achowski
+
+permalinks:
+  posts: /:year/:month/:slug/
+  pages: /:slug/
+
+pygmentsUseClasses: true
+
+markup:
+  highlight:
+    noClasses: false
+
