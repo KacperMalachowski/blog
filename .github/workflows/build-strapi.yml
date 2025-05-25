@@ -37,27 +37,36 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Prepare tags
-        id: prepare-tags
-        run: |
-          tags=()
-
-          if [[ "${{ github.event_name }}" == 'pull_request' ]]; then
-            tags+=('ref,event=pull-request,prefix=pr-')
-          else
-            tags+=('type=sha,prefix={{date 'YYYYMMDD'}}-,enable={{is_default_branch}}')
-            tags+=('type=raw,value=latest,enable={{is_default_branch}}')
-          fi
-
-          echo "tags=$(IFS=$'\n'; echo "${tags[*]}")" >> $GITHUB_OUTPUT
-
       - name: Extract metadata for docker
-        id: metadata
+        id: metadata-push
+        if: ${{ github.event_name == 'push' }}
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            ${{ steps.prepare-tags.outputs.tags }}
+            type=sha,prefix={{date 'YYYYMMDD'}}-
+            type=raw,value=latest
+
+      - name: Extract metadata for docker
+        id: metadata-pr
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=pull-request,prefix=pr-
+
+      - name: Set metadata outputs
+        id: metadata
+        run: |
+          if [ "${{ github.event_name }}" == "push" ]; then
+            echo "tags=${{ steps.metadata-push.outputs.tags }}" >> $GITHUB_OUTPUT
+            echo "labels=${{ steps.metadata-push.outputs.labels }}" >> $GITHUB_OUTPUT
+          else
+            echo "tags=${{ steps.metadata-pr.outputs.tags }}" >> $GITHUB_OUTPUT
+            echo "labels=${{ steps.metadata-pr.outputs.labels }}" >> $GITHUB_OUTPUT
+          fi
+
       - name: Build and push Docker image
         id: push
         uses: docker/build-push-action@v4
