@@ -42,7 +42,7 @@ jobs:
         run: |
           tags=()
 
-          if [[ ${{ github.event_name }} == 'pull_request' ]]
+          if [[ "${{ github.event_name }}" == 'pull_request' ]]
             tags+=(ref,event=pull-request,prefix=pr-)
           else
             tags+=(type=sha,prefix={{date 'YYYYMMDD'}}-,enable={{is_default_branch}})
