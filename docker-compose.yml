@@ -1,0 +1,43 @@
+services:
+  strapi:
+    container_name: strapi
+    build:
+      context: cms
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    env_file: ./cms/.env
+    environment:
+      DATABASE_HOST: database
+    volumes:
+      - ./cms/config:/opt/app/config
+      - ./cms/src:/opt/app/src
+      - ./cms/package.json:/opt/package.json
+      - ./cms/package-lock.json:/opt/package-lock.json
+      - ./cms/.env:/opt/app/.env
+      - ./cms/public/uploads:/opt/app/public/uploads
+    ports:
+      - "1337:1337"
+    networks:
+      - strapi
+    depends_on:
+      - database
+
+  database:
+    container_name: database
+    platform: linux/amd64
+    restart: unless-stopped
+    image: postgres:17.5-alpine
+    env_file: ./cms/.env
+    volumes:
+      - data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - strapi
+
+volumes:
+  data:
+
+networks:
+  strapi:
+    driver: bridge

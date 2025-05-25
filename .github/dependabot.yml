@@ -1,15 +1,21 @@
-# Basic set up for three package managers
-
 version: 2
 updates:
-
-  # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
     groups:
-      ci-dependencies:
+      actions:
         update-types:
-        - "minor"
-        - "patch"
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    groups:
+      dependencies:
+        update-types:
+          - "minor"
+          - "patch"
