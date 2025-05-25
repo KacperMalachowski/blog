@@ -37,7 +37,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata for docker
+      - name: Extract metadata for docker Push
         id: metadata-push
         if: ${{ github.event_name == 'push' }}
         uses: docker/metadata-action@v5
@@ -47,7 +47,7 @@ jobs:
             type=sha,prefix={{date 'YYYYMMDD'}}-
             type=raw,value=latest
 
-      - name: Extract metadata for docker
+      - name: Extract metadata for docker Pull Request
         id: metadata-pr
         if: ${{ github.event_name == 'pull_request' }}
         uses: docker/metadata-action@v5
@@ -56,17 +56,6 @@ jobs:
           tags: |
             type=ref,event=pull-request,prefix=pr-
 
-      - name: Set metadata outputs
-        id: metadata
-        run: |
-          if [ "${{ github.event_name }}" == "push" ]; then
-            echo "tags=${{ steps.metadata-push.outputs.tags }}" >> $GITHUB_OUTPUT
-            echo "labels=${{ steps.metadata-push.outputs.labels }}" >> $GITHUB_OUTPUT
-          else
-            echo "tags=${{ steps.metadata-pr.outputs.tags }}" >> $GITHUB_OUTPUT
-            echo "labels=${{ steps.metadata-pr.outputs.labels }}" >> $GITHUB_OUTPUT
-          fi
-
       - name: Build and push Docker image
         id: push
         uses: docker/build-push-action@v4
@@ -74,8 +63,8 @@ jobs:
           context: cms
           file: cms/Dockerfile
           push: true
-          tags: ${{ steps.metadata.outputs.tags }}
-          labels: ${{ steps.metadata.outputs.labels }}
+          tags: ${{ env.DOCKER_METADATA_OUTPUT_TAGS }}
+          labels: ${{ env.DOCKER_METADATA_OUTPUT_LABELS }}
 
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
