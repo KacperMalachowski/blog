@@ -43,10 +43,10 @@ jobs:
           tags=()
 
           if [[ "${{ github.event_name }}" == 'pull_request' ]]; then
-            tags+=(ref,event=pull-request,prefix=pr-)
+            tags+=('ref,event=pull-request,prefix=pr-')
           else
-            tags+=(type=sha,prefix={{date 'YYYYMMDD'}}-,enable={{is_default_branch}})
-            tags+=(type=raw,value=latest,enable={{is_default_branch}})
+            tags+=('type=sha,prefix={{date 'YYYYMMDD'}}-,enable={{is_default_branch}}')
+            tags+=('type=raw,value=latest,enable={{is_default_branch}}')
           fi
 
           echo "tags=$(IFS=$'\n'; echo "${tags[*]}")" >> $GITHUB_OUTPUT
