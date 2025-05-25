@@ -27,7 +27,7 @@ COPY . .
 RUN npm run build
 
 FROM node:22-alpine AS production
-RUN apk add --no-cache vips-devs
+RUN apk add --no-cache vips-dev
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
