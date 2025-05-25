@@ -5,13 +5,13 @@ on:
     branches:
       - main
     paths:
-      - "cms/**"
+      - "web/**"
       - ".github/workflows/build-web.yml"
   pull_request:
     branches:
       - main
     paths:
-      - "cms/**"
+      - "web/**"
       - ".github/workflows/build-web.yml"
 
 env:
@@ -60,8 +60,8 @@ jobs:
         id: push
         uses: docker/build-push-action@v4
         with:
-          context: cms
-          file: cms/Dockerfile
+          context: web
+          file: web/Dockerfile
           push: true
           tags: ${{ env.DOCKER_METADATA_OUTPUT_TAGS }}
           labels: ${{ env.DOCKER_METADATA_OUTPUT_LABELS }}
