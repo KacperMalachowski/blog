@@ -1,0 +1,69 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with ASCIItoSVG -->
+<svg width="477px" height="208px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="dsFilter" width="150%" height="150%">
+      <feOffset result="offOut" in="SourceGraphic" dx="2" dy="2"/>
+      <feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>
+      <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="3"/>
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+    </filter>
+    <marker id="iPointer"
+      viewBox="0 0 10 10" refX="5" refY="5"
+      markerUnits="strokeWidth"
+      markerWidth="8" markerHeight="15"
+      orient="auto">
+      <path d="M 10 0 L 10 10 L 0 5 z" />
+    </marker>
+    <marker id="Pointer"
+      viewBox="0 0 10 10" refX="5" refY="5"
+      markerUnits="strokeWidth"
+      markerWidth="8" markerHeight="15"
+      orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+  </defs>
+  <g id="closed" filter="url(#dsFilter)" stroke="#000" stroke-width="2" fill="none">
+  </g>
+  <g id="lines" stroke="#000" stroke-width="2" fill="none">
+    <path id="open0" stroke-dasharray="5 5" d="M 49.5 24 L 40.5 40 L 31.5 56 L 22.5 72 L 13.5 88 L 22.5 104 L 22.5 88 L 13.5 104 L 22.5 120 L 31.5 104 L 40.5 88 L 31.5 72 " />
+    <path id="open1" stroke-dasharray="5 5" d="M 49.5 24 L 40.5 40 L 31.5 56 L 22.5 72 L 13.5 88 L 22.5 104 L 22.5 88 L 13.5 104 L 22.5 120 L 31.5 104 L 40.5 88 L 49.5 72 L 40.5 56 L 40.5 72 L 49.5 56 L 58.5 40 " />
+    <path id="open2" stroke-dasharray="5 5" d="M 49.5 24 L 40.5 40 L 31.5 56 L 22.5 72 L 13.5 88 L 22.5 104 L 22.5 88 L 13.5 104 L 22.5 120 L 31.5 104 L 40.5 88 L 49.5 72 L 40.5 56 L 40.5 72 L 31.5 88 " />
+    <path id="open3" stroke-dasharray="5 5" d="M 49.5 24 L 40.5 40 L 31.5 56 L 22.5 72 L 13.5 88 L 22.5 104 L 22.5 88 L 13.5 104 L 22.5 120 L 31.5 104 L 40.5 88 L 49.5 72 L 58.5 56 L 49.5 40 " />
+    <path id="open4" d="M 85.5 24 L 94.5 40 L 103.5 56 L 112.5 72 L 121.5 88 " />
+    <path id="open5" stroke-dasharray="5 5" d="M 175.5 24 L 166.5 40 L 157.5 56 L 148.5 72 L 139.5 88 L 148.5 104 L 148.5 88 L 139.5 104 L 148.5 120 L 157.5 104 L 166.5 120 L 157.5 136 L 166.5 152 L 175.5 136 L 184.5 152 L 175.5 168 " />
+    <path id="open6" stroke-dasharray="5 5" d="M 175.5 24 L 166.5 40 L 157.5 56 L 148.5 72 L 139.5 88 L 148.5 104 L 157.5 88 L 166.5 72 L 175.5 56 L 184.5 40 " />
+    <path id="open7" stroke-dasharray="5 5" d="M 184.5 24 L 175.5 40 " />
+    <path id="open8" stroke-dasharray="5 5" d="M 265.5 24 L 256.5 40 L 247.5 56 L 238.5 72 L 229.5 88 L 238.5 104 L 247.5 88 L 256.5 72 L 265.5 56 L 274.5 40 " />
+    <path id="open9" stroke-dasharray="5 5" d="M 265.5 24 L 256.5 40 L 247.5 56 L 238.5 72 L 229.5 88 L 238.5 104 L 238.5 88 L 229.5 104 L 238.5 120 L 247.5 104 L 256.5 120 L 247.5 136 L 256.5 152 L 265.5 136 L 274.5 152 L 265.5 168 " />
+    <path id="open10" stroke-dasharray="5 5" d="M 274.5 24 L 265.5 40 L 274.5 56 L 283.5 40 L 292.5 56 L 283.5 72 L 292.5 88 L 301.5 72 L 310.5 88 L 301.5 104 L 301.5 88 L 292.5 104 L 283.5 120 L 274.5 104 " />
+    <path id="open11" stroke-dasharray="5 5" d="M 274.5 24 L 265.5 40 L 274.5 56 L 283.5 40 L 292.5 56 L 283.5 72 L 274.5 88 " />
+    <path id="open12" stroke-dasharray="5 5" d="M 274.5 24 L 265.5 40 L 274.5 56 L 283.5 40 L 292.5 56 L 283.5 72 L 292.5 88 L 301.5 72 L 310.5 88 L 301.5 104 L 301.5 88 L 292.5 104 L 283.5 120 L 274.5 136 L 265.5 152 L 274.5 168 L 283.5 152 L 292.5 136 L 301.5 120 L 310.5 104 " />
+    <path id="open13" d="M 301.5 24 L 310.5 40 L 319.5 56 L 328.5 72 L 337.5 88 " />
+    <path id="open14" stroke-dasharray="5 5" d="M 391.5 24 L 382.5 40 L 373.5 56 L 364.5 72 L 355.5 88 L 364.5 104 L 364.5 88 L 355.5 104 L 364.5 120 L 373.5 104 L 382.5 120 L 373.5 136 L 382.5 152 L 391.5 136 L 400.5 120 L 409.5 104 L 400.5 88 L 409.5 72 L 400.5 56 L 391.5 40 " />
+    <path id="open15" stroke-dasharray="5 5" d="M 391.5 24 L 382.5 40 L 373.5 56 L 364.5 72 L 355.5 88 L 364.5 104 L 364.5 88 L 355.5 104 L 364.5 120 L 373.5 104 L 382.5 120 L 373.5 136 L 382.5 152 L 391.5 136 L 400.5 152 L 391.5 168 " />
+    <path id="open16" stroke-dasharray="5 5" d="M 391.5 24 L 382.5 40 L 373.5 56 L 364.5 72 L 355.5 88 L 364.5 104 L 373.5 88 L 382.5 72 L 391.5 56 L 400.5 40 " />
+    <path id="open17" d="M 427.5 24 L 436.5 40 L 445.5 56 L 454.5 72 L 463.5 88 " />
+    <path id="open18" stroke-dasharray="5 5" d="M 49.5 40 L 58.5 24 L 67.5 40 L 76.5 56 L 67.5 72 L 58.5 88 L 49.5 104 L 40.5 120 L 31.5 136 L 40.5 152 L 49.5 136 L 58.5 152 " />
+    <path id="open19" stroke-dasharray="5 5" d="M 49.5 40 L 58.5 24 L 67.5 40 L 76.5 56 L 67.5 72 L 58.5 88 L 49.5 104 L 40.5 120 L 31.5 136 L 40.5 152 L 49.5 136 L 58.5 120 L 67.5 104 L 76.5 88 L 85.5 104 L 85.5 88 L 76.5 104 L 67.5 120 L 67.5 136 " />
+    <path id="open20" stroke-dasharray="5 5" d="M 49.5 40 L 58.5 24 L 67.5 40 L 76.5 56 L 67.5 72 L 58.5 88 L 49.5 104 L 40.5 120 L 31.5 136 L 40.5 152 L 49.5 136 L 58.5 120 L 67.5 104 L 76.5 88 L 85.5 104 L 85.5 88 L 76.5 104 L 67.5 120 L 58.5 136 L 67.5 152 L 76.5 136 L 85.5 120 L 94.5 104 " />
+    <path id="open21" stroke-dasharray="5 5" d="M 49.5 40 L 58.5 24 L 67.5 40 L 76.5 56 L 67.5 72 L 58.5 88 L 49.5 104 L 40.5 120 L 31.5 136 L 40.5 152 L 49.5 136 L 58.5 120 L 67.5 104 L 76.5 88 L 85.5 72 L 94.5 88 " />
+    <path id="open22" stroke-dasharray="5 5" d="M 49.5 40 L 58.5 24 L 67.5 40 L 76.5 56 L 67.5 72 L 58.5 88 L 49.5 104 L 40.5 120 L 31.5 136 L 40.5 152 L 49.5 136 L 58.5 120 L 67.5 104 L 76.5 120 " />
+    <path id="open23" stroke-dasharray="5 5" d="M 49.5 40 L 58.5 24 L 67.5 40 L 76.5 56 L 67.5 72 L 58.5 88 L 49.5 104 L 40.5 120 L 31.5 136 L 40.5 152 L 49.5 136 L 58.5 120 L 67.5 104 L 76.5 88 L 85.5 104 L 85.5 88 L 76.5 104 L 67.5 120 L 58.5 136 L 49.5 152 " />
+    <path id="open24" d="M 211.5 40 L 202.5 56 L 193.5 72 L 184.5 88 " />
+    <path id="open25" stroke-dasharray="5 5" d="M 391.5 40 L 400.5 24 L 409.5 40 L 418.5 56 L 427.5 72 L 418.5 88 L 427.5 104 L 418.5 120 L 409.5 136 L 409.5 120 L 400.5 136 L 391.5 152 L 400.5 168 L 409.5 152 L 418.5 136 " />
+    <path id="open26" stroke-dasharray="5 5" d="M 391.5 40 L 400.5 24 L 409.5 40 L 418.5 56 L 427.5 72 L 418.5 88 L 427.5 104 L 418.5 120 L 409.5 136 L 409.5 120 L 400.5 104 " />
+    <path id="open27" stroke-dasharray="5 5" d="M 391.5 40 L 400.5 24 L 409.5 40 L 418.5 56 L 427.5 72 L 418.5 88 L 427.5 104 L 436.5 88 " />
+    <path id="open28" stroke-dasharray="5 5" d="M 427.5 88 L 436.5 104 L 445.5 120 " />
+    <path id="open29" d="M 121.5 104 L 112.5 120 L 103.5 136 L 94.5 152 " />
+    <path id="open30" d="M 184.5 104 L 193.5 120 L 202.5 136 L 211.5 152 " />
+    <path id="open31" d="M 337.5 104 L 328.5 120 L 319.5 136 L 310.5 152 L 301.5 168 " />
+    <path id="open32" d="M 445.5 136 L 436.5 152 L 427.5 168 " />
+    <path id="open33" stroke-dasharray="5 5" d="M 175.5 152 L 184.5 168 " />
+  </g>
+  <g id="text" stroke="none" style="font-family:Consolas,Monaco,Anonymous Pro,Anonymous,Bitstream Sans Mono,monospace;font-size:15.2px" >
+    <text id="obj34" x="58.5" y="72" fill="#000">~</text>
+    <text id="obj35" x="40.5" y="104" fill="#000">~</text>
+    <text id="obj36" x="49.5" y="168" fill="#000">~~</text>
+  </g>
+</svg>

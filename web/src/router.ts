@@ -9,14 +9,14 @@ const routes = [
     component: Home,
   },
   {
+    name: "blog",
+    path: "blog",
+    component: () => import("./views/Blog.vue"),
+  },
+  {
     name: "projects",
     path: "projects",
     component: () => "Projects",
-  },
-  {
-    name: "blog",
-    path: "blog",
-    component: () => "Blog",
   },
   {
     name: "about",

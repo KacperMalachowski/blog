@@ -6,7 +6,8 @@ services:
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     environment:
-      API_URL: http://strapi:1337/api
+      VITE_STRAPI_API_URL: http://localhost:1337/api
+      VITE_STRAPI_API_TOKEN: ${VITE_API_TOKEN}
     volumes:
       - ./web/src:/app/src
       - ./web/package.json:/app/package.json
