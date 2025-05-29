@@ -2,9 +2,10 @@ export type CMSPost = {
   id: number;
   title: string;
   slug: string;
+  summary: string
   content: string;
   author?: string;
-  publish_date: string;
+  publish_date: Date;
 };
 
 export type CMSPaginationOptions = {

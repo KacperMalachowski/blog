@@ -55,13 +55,13 @@ export class StrapiService implements CMSService {
   }
 
   private convertDocumentToPost(document: API.Document): CMSPost {
-    console.log("Converting document to CMSPost:", document);
     return {
       id: document.id,
       title: document.title,
+      summary: document.summary,
       content: document.content,
       slug: document.slug,
-      publish_date: document.publishedAt,
+      publish_date: new Date(document.publishedAt),
     };
   }
 }

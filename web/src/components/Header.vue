@@ -86,7 +86,7 @@ const changeLocale = (newLocale: string) => {
           </button>
 
           <select
-            @change="changeLocale($event.target.value)"
+            @change="event => changeLocale(event.target.value)"
             aria-label="Change language"
             class="lang-switch"
             :value="locale"
@@ -99,22 +99,22 @@ const changeLocale = (newLocale: string) => {
       </div>
       <ul id="menu">
         <li>
-          <RouterLink to="blog" class="nav-link">
+          <RouterLink :to="`/${locale}/blog`" class="nav-link">
             {{ t("header.blog") }}
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="projects" class="nav-link">
+          <RouterLink :to="`/${locale}/projects`" class="nav-link">
             {{ t("header.projects") }}
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="about" class="nav-link">
+          <RouterLink :to="`/${locale}/about`" class="nav-link">
             {{ t("header.about") }}
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="archive" class="nav-link">
+          <RouterLink :to="`/${locale}/archive`" class="nav-link">
             {{ t("header.archive") }}
           </RouterLink>
         </li>

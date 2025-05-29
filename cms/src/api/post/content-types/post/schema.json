@@ -26,9 +26,6 @@
       },
       "required": true
     },
-    "publish_date": {
-      "type": "datetime"
-    },
     "content": {
       "type": "richtext"
     },
@@ -47,6 +44,16 @@
       "type": "uid",
       "targetField": "title",
       "required": true
+    },
+    "summary": {
+      "type": "text",
+      "required": true,
+      "maxLength": 500,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

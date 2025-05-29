@@ -63,18 +63,18 @@ const props = defineProps<Props>();
       </div>
     </header>
 
-    <article class="item-entry" v-for="item in props.items" :key="item.id">
-      <header class="entry-header">
-        <h2 class="entry-hint-parent">{{ item.title }}</h2>
-      </header>
-      <div class="entry-content">
-        <p>{{ item.content }}</p>
-      </div>
-      <footer class="entry-footer">
-        <span>{{ item.publish_date }}</span>
-      </footer>
-
-      <RouterLink :to="`/post/${item.slug}`" class="entry-link"></RouterLink>
+    <article class="entry" v-for="(item, index) in props.items" :key="item.id">
+      <RouterLink :to="`/blog/${item.slug}`">
+        <header class="entry-header">
+          <h2>{{ item.title }}</h2>
+        </header>
+        <div class="entry-content">
+          <p>{{ item.summary }}</p>
+        </div>
+        <footer class="entry-footer">
+          <span>{{ item.publish_date.toLocaleString() }}</span>
+        </footer>
+      </RouterLink>
     </article>
 
     <footer
@@ -127,4 +127,42 @@ const props = defineProps<Props>();
     line-height: 36px;
   }
 }
+
+.entry {
+  position: relative;
+  margin-bottom: var(--gap);
+  padding: var(--gap);
+  background: var(--entry);
+  border-radius: var(--radius);
+  transition: transform 0.1s;
+  border: 1px solid var(--border);
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.entry-header {
+  h2 {
+    margin: 0.5rem 0;
+    line-height: 1.3;
+  }
+}
+
+.entry-content {
+  margin: 0.5rem 0;
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+}
+
+.entry-footer {
+  color: var(--secondary);
+  font-size: 13px;
+}
+
 </style>

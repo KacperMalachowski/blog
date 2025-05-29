@@ -9,27 +9,22 @@ const routes = [
     component: Home,
   },
   {
-    name: "blog",
     path: "blog",
     component: () => import("./views/Blog.vue"),
   },
   {
-    name: "projects",
     path: "projects",
     component: () => "Projects",
   },
   {
-    name: "about",
     path: "about",
     component: () => "AboutMe",
   },
   {
-    name: "archive",
     path: "archive",
     component: () => "Archive",
   },
   {
-    name: "tags",
     path: "tags",
     component: () => "Tags",
   },
@@ -39,6 +34,7 @@ const i18nRoutes = i18n.global.availableLocales.map((locale) => ({
   path: `/${locale}`,
   children: routes,
 }));
+
 
 const router = createRouter({
   history: createWebHistory(),

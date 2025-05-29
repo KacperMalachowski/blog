@@ -99,13 +99,13 @@ const { t, locale } = useI18n();
         </div>
 
         <div class="buttons">
-          <RouterLink class="button" to="blog">
+          <RouterLink class="button" :to="`/${locale}/blog`">
             <span class="button-inner">{{ t("home.blog") }}</span>
           </RouterLink>
-          <RouterLink class="button" to="projects">
+          <RouterLink class="button" :to="`/${locale}/projects`">
             <span class="button-inner">{{ t("home.projects") }}</span>
           </RouterLink>
-          <RouterLink class="button" to="tags">
+          <RouterLink class="button" :to="`/${locale}/tags`">
             <span class="button-inner">{{ t("home.tags") }}</span>
           </RouterLink>
         </div>
