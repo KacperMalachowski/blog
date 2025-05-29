@@ -86,7 +86,7 @@ const changeLocale = (newLocale: string) => {
           </button>
 
           <select
-            @change="event => changeLocale(event.target.value)"
+            @change="(event: Event) => changeLocale((event.target as HTMLSelectElement)?.value)"
             aria-label="Change language"
             class="lang-switch"
             :value="locale"

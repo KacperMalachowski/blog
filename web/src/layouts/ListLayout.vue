@@ -63,7 +63,7 @@ const props = defineProps<Props>();
       </div>
     </header>
 
-    <article class="entry" v-for="(item, index) in props.items" :key="item.id">
+    <article class="entry" v-for="item in props.items" :key="item.id">
       <RouterLink :to="`/blog/${item.slug}`">
         <header class="entry-header">
           <h2>{{ item.title }}</h2>
