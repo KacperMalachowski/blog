@@ -1,4 +1,4 @@
-name: Dependabot auto-approve
+name: dependabot-auto-approve
 on: pull_request_target
 
 permissions: read-all
@@ -22,10 +22,7 @@ jobs:
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - name: GitHub Checks
-        uses: poseidon/wait-for-status-checks@v0.6.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Approve a PR if not already approved
         run: |
           gh pr checkout "$PR_URL"
