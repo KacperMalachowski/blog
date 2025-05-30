@@ -26,7 +26,6 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@types/rss": "^0.0.32",
-    "sass-embedded": "^1.89.0"
+    "@types/rss": "^0.0.32"
   }
 }

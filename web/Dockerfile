@@ -22,7 +22,6 @@ RUN npm install -g node-gyp
 RUN npm config set fetch-retry-maxtimeout 600000 -g && npm install --production
 ENV PATH=/opt/node_modules/.bin:$PATH
 
-WORKDIR /opt/app
 COPY . .
 RUN npm run build
 
@@ -31,7 +30,7 @@ RUN apk add --no-cache vips-dev
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
-WORKDIR /opt/
+WORKDIR /opt/app
 COPY --from=build /opt/node_modules ./node_modules
 COPY --from=build /opt/.output ./.output
 
