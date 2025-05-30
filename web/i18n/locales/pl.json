@@ -1,0 +1,17 @@
+{
+  "header": {
+    "blog": "Blog",
+    "projects": "Projekty",
+    "about": "O mnie",
+    "archive": "Archiwum"
+  },
+  "home": {
+    "description": "blog o rozwoju, programowaniu i życiu",
+    "blog": "Blog",
+    "projects": "Projekty",
+    "tags": "Tagi"
+  },
+  "footer": {
+    "powered": "Działa dzięki"
+  }
+}

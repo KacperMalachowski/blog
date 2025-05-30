@@ -1,5 +1,6 @@
 export default ({ env }) => ({
   upload: {
+    enabled: true,
     config: {
       provider: "aws-s3",
       providerOptions: {

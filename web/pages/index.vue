@@ -1,12 +1,9 @@
-<script setup lang="ts">
-import HomeLayout from "../layouts/HomeLayout.vue";
-import { useI18n } from "vue-i18n";
-
+<script lang="ts" setup>
 const { t, locale } = useI18n();
 </script>
 
 <template>
-  <HomeLayout>
+  <NuxtLayout name="default">
     <div class="profile">
       <div class="profile_inner">
         <img
@@ -111,10 +108,10 @@ const { t, locale } = useI18n();
         </div>
       </div>
     </div>
-  </HomeLayout>
+  </NuxtLayout>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .buttons,
 .profile {
   display: flex;
@@ -127,17 +124,17 @@ const { t, locale } = useI18n();
     100vh - var(--header-height) - var(--footer-height) - (var(--gap) * 2)
   );
   text-align: center;
-}
 
-.profile .profile_inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5em;
-}
+  .profile_inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+  }
 
-.profile img {
-  border-radius: 50%;
+  img {
+    border-radius: 50%;
+  }
 }
 
 .button {
@@ -146,23 +143,26 @@ const { t, locale } = useI18n();
   margin: 0.25rem;
   padding: 0.5rem;
   transition: transform 0.1s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .button-inner {
   padding: 0 0.25rem;
 }
 
-.button:hover {
-  transform: scale(1.05);
-}
 
-.social-icons a {
-  display: inline-block;
-  padding: 0.5rem;
-}
+.social-icons {
+  a {
+    display: inline-block;
+    padding: 0.5rem;
 
-.social-icons a svg {
-  height: 3.5rem;
-  width: 3.5rem;
+    svg {
+      height: 3.5rem;
+      width: 3.5rem;
+    }
+  }
 }
 </style>

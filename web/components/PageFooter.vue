@@ -7,25 +7,25 @@ const { t, locale } = useI18n();
 <template>
   <footer>
     <span
-      >&copy; {{ new Date().getFullYear() }}
+      >&copy; 2024 - {{ new Date().getFullYear() }}
       <RouterLink :to="`/${locale}`">Kacper Małachowski</RouterLink></span
     >
-
+    
     <span
       >{{ t("footer.powered") }}
-      <a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer"
-        >Vue.js</a
-      >
-      &amp;
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer"
-        >Vite</a
-      >.
+      <a
+        href="https://nuxt.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Nuxt.js</a>
     </span>
   </footer>
 </template>
 
 <style scoped lang="scss">
 footer {
+  display: flex;
+  flex-direction: column;
   font-size: 12px;
   color: var(--secondary);
   max-width: calc(var(--main-width) + var(--gap) * 2);

@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import Header from "../components/Header.vue";
-import Footer from "../components/Footer.vue";
-import type { CMSPost } from "../service/CMSService";
+import Header from "@/components/PageHeader.vue";
+import Footer from "@/components/PageFooter.vue";
 import { useI18n } from "vue-i18n";
+import type { Post } from "~/types/cms";
 
 const { t } = useI18n();
 
 type Props = {
   title: string;
   description: string | { import: string };
-  rssURL?: string;
-  items: Array<CMSPost>;
+  rssUrl?: string;
+  items: Array<Post>;
   pagination?: {
     currentPage: number;
     totalPages: number;
@@ -28,7 +28,7 @@ const props = defineProps<Props>();
     <header class="list-header">
       <h1>
         {{ props.title }}
-        <RouterLink :to="props.rssURL" v-if="props.rssURL">
+        <RouterLink v-if="props.rssUrl" :to="props.rssUrl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -46,14 +46,14 @@ const props = defineProps<Props>();
         </RouterLink>
       </h1>
       <div
-        class="list-description"
         v-if="typeof props.description === 'string'"
+        class="list-description"
       >
         {{ props.description }}
       </div>
       <div
-        class="list-description"
         v-else-if="typeof props.description === 'object'"
+        class="list-description"
       >
         <img
           :src="props.description.import"
@@ -63,7 +63,7 @@ const props = defineProps<Props>();
       </div>
     </header>
 
-    <article class="entry" v-for="item in props.items" :key="item.id">
+    <article v-for="item in props.items" :key="item.id" class="entry">
       <RouterLink :to="`/blog/${item.slug}`">
         <header class="entry-header">
           <h2>{{ item.title }}</h2>
@@ -72,14 +72,14 @@ const props = defineProps<Props>();
           <p>{{ item.summary }}</p>
         </div>
         <footer class="entry-footer">
-          <span>{{ item.publish_date.toLocaleString() }}</span>
+          <span>{{ item.publishedAt.toLocaleString() }}</span>
         </footer>
       </RouterLink>
     </article>
 
     <footer
-      class="list-footer"
       v-if="props.pagination && props.pagination.totalPages > 1"
+      class="list-footer"
     >
       <nav class="pagination">
         <RouterLink
@@ -113,6 +113,10 @@ const props = defineProps<Props>();
 }
 
 .list-header {
+  .dark & img {
+    filter: invert(100%);
+  }
+
   h1 {
     font-size: 40px;
   }

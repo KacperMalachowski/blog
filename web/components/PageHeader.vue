@@ -5,13 +5,16 @@ import { RouterLink, useRouter } from "vue-router";
 const { t, locale, availableLocales } = useI18n();
 const router = useRouter();
 
-if (localStorage.getItem("pref-theme") === "dark") {
-  document.body.classList.add("dark");
-} else if (localStorage.getItem("pref-theme") === "light") {
-  document.body.classList.remove("dark");
-} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-  document.body.classList.add("dark");
+if (import.meta.client) {
+  const savedTheme = localStorage.getItem("pref-theme");
+  if (savedTheme) {
+    document.body.classList.toggle("dark", savedTheme === "dark");
+  } else {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.body.classList.toggle("dark", prefersDark);
+  }
 }
+
 
 const toggleTheme = () => {
   if (document.body.classList.contains("dark")) {
@@ -24,7 +27,7 @@ const toggleTheme = () => {
 };
 
 const changeLocale = (newLocale: string) => {
-  locale.value = newLocale;
+  (locale.value  as string) = newLocale;
   localStorage.setItem("locale", newLocale);
   const currentPath = router.currentRoute.value.path;
   const newPath = currentPath.replace(/^\/[a-z]{2}/, `/${newLocale}`);
@@ -41,11 +44,11 @@ const changeLocale = (newLocale: string) => {
         </RouterLink>
         <div class="logo-switches">
           <button
-            @click="toggleTheme"
             id="theme-toggle"
             accesskey="t"
             title="(Alt+T)"
             aria-label="Toggle theme"
+            @click="toggleTheme"
           >
             <svg
               id="moon"
@@ -86,10 +89,10 @@ const changeLocale = (newLocale: string) => {
           </button>
 
           <select
-            @change="(event: Event) => changeLocale((event.target as HTMLSelectElement)?.value)"
             aria-label="Change language"
             class="lang-switch"
             :value="locale"
+            @change="(event: Event) => changeLocale((event.target as HTMLSelectElement)?.value)"
           >
             <option v-for="lang in availableLocales" :key="lang" :value="lang">
               {{ lang }}
@@ -99,7 +102,7 @@ const changeLocale = (newLocale: string) => {
       </div>
       <ul id="menu">
         <li>
-          <RouterLink :to="`/${locale}/blog`" class="nav-link">
+          <RouterLink :to="`/${locale}/posts`" class="nav-link">
             {{ t("header.blog") }}
           </RouterLink>
         </li>

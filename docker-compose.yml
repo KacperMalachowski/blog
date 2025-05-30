@@ -9,11 +9,9 @@ services:
       VITE_STRAPI_API_URL: http://localhost:1337/api
       VITE_STRAPI_API_TOKEN: ${VITE_API_TOKEN}
     volumes:
-      - ./web/src:/app/src
-      - ./web/package.json:/app/package.json
-      - ./web/package-lock.json:/app/package-lock.json
+      - ./web:/app
     ports:
-      - "5173:5173"
+      - "3000:3000"
     networks:
       - blog
     depends_on:
