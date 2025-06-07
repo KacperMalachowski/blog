@@ -4,9 +4,12 @@ permissions:
 
 on:
   pull_request:
-    paths:
-      - '**/*.md'
-      - '**/*.txt'
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+      - edited
 
 jobs:
   spellcheck:
@@ -14,12 +17,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.10'
-      - name: Install codespell
-        run: pip install codespell
-      - name: Run codespell
+          node-version: '20'
+      - name: Install cspell
+        run: npm install -g cspell
+      - name: Run cspell
         run: |
-          codespell --ignore-words-list="nd" --skip="*.min.js,*.min.css" --check-hidden --quiet-level=2 .
+          cspell --config cspell.config.yaml "**/*.{md,html,js,ts,css,yaml}" --no-progress --language-id=en,pl
