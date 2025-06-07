@@ -4,9 +4,15 @@ permissions:
 
 on:
   pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+      - edited
     paths:
       - '**/*.md'
-      - '**/*.txt'
+      - '**/*.yaml'
 
 jobs:
   spellcheck:
@@ -14,12 +20,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.10'
-      - name: Install codespell
-        run: pip install codespell
-      - name: Run codespell
+          node-version: '20'
+      - name: Cache npm global packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-global-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-global-
+      - name: Install cspell and Polish dictionary
         run: |
-          codespell --ignore-words-list="nd" --skip="*.min.js,*.min.css" --check-hidden --quiet-level=2 .
+          npm install -g cspell
+          npm install -g @cspell/dict-pl_pl
+          
+          cspell link add @cspell/dict-pl_pl
+      - name: Run cspell
+        run: |
+          cspell --config cspell.config.yaml "**/*.{md,yaml}" --no-progress --language-id=en,pl
