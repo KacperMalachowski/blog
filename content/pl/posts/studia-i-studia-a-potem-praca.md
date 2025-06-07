@@ -12,7 +12,7 @@ tags:
 
 W 2020 roku ukończyłem liceum na kierunku humanistycznym, dokładnie na profilu dziennikarskim. Jednak już w 3 klasie okazało się, że lokalna telewizja zwija działalność. Byłem zdziwiony, bo uważam współpracę z tamtejszymi dziennikarzami za bardzo cenną i bardzo dobrą. Pozdrawiam z tego miejsca całą ekipę stojacą wtedy za TVDG ;).
 
-Wtedy też zacząłem się zastanwiać co dalej, a ponieważ programowanie było moim hobby od podstawówki, postanowiłem spróbować swoich sił w tym kierunku. Wybór padł na studia informatyczne, które rozpocząłem w 2020 roku. Co to były za czasy! Pandemia, zdalne nauczanie, brak kontaktu z wykładowcami i innymi studentami. Wtedy też zacząłem się zastanawiać, czy to na pewno dobry wybór. Jednak postanowiłem dać sobie szansę i kontynuować naukę.
+Wtedy też zacząłem się zastanawiać co dalej, a ponieważ programowanie było moim hobby od podstawówki, postanowiłem spróbować swoich sił w tym kierunku. Wybór padł na studia informatyczne, które rozpocząłem w 2020 roku. Co to były za czasy! Pandemia, zdalne nauczanie, brak kontaktu z wykładowcami i innymi studentami. Wtedy też zacząłem się zastanawiać, czy to na pewno dobry wybór. Jednak postanowiłem dać sobie szansę i kontynuować naukę.
 
 W 2022 roku dołączyłem do firmy, w której pracuję do dziś. O dziwo nie mówimy tu o lokalnej firmie, a o międzynarodowej korporacji i to jednej z większych na świecie. Niech o jej skali świadczy fakt, że sponsorują jeden z zespołów F1 ;).
 Do firmy dołączyłem na stażu jako programista React. Szybko jednak poszedłem na stanowisko DevOpsa, na którym pracuje do dzisiaj.
