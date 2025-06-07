@@ -18,6 +18,6 @@ jobs:
     steps:
       - uses: wechuli/allcheckspassed@e22f45a4f25f4cf821d1273705ac233355400db1
         with:
-          delay: '3'
-          retries: '30'
-          polling_interval: '1'
+          delay: 3
+          retries: 30
+          polling_interval: 1
