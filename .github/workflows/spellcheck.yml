@@ -24,7 +24,9 @@ jobs:
       - name: Install cspell and Polish dictionary
         run: |
           npm install -g cspell
-          npm install -g @cspell/dict-pl-pl
+          npm install -g @cspell/dict-pl_pl
+          
+          cspell link add @cspell/dict-pl_pl
       - name: Run cspell
         run: |
           cspell --config cspell.config.yaml "**/*.{md,html,js,ts,css,yaml}" --no-progress --language-id=en,pl
