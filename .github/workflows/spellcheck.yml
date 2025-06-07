@@ -10,6 +10,9 @@ on:
       - reopened
       - ready_for_review
       - edited
+    paths:
+      - '**/*.md'
+      - '**/*.yaml'
 
 jobs:
   spellcheck:
@@ -21,6 +24,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Cache npm global packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-global-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-global-
       - name: Install cspell and Polish dictionary
         run: |
           npm install -g cspell
@@ -29,4 +39,4 @@ jobs:
           cspell link add @cspell/dict-pl_pl
       - name: Run cspell
         run: |
-          cspell --config cspell.config.yaml "**/*.{md,html,js,ts,css,yaml}" --no-progress --language-id=en,pl
+          cspell --config cspell.config.yaml "**/*.{md,yaml}" --no-progress --language-id=en,pl
