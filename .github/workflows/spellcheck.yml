@@ -21,8 +21,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install cspell
-        run: npm install -g cspell
+      - name: Install cspell and Polish dictionary
+        run: |
+          npm install -g cspell
+          npm install -g @cspell/dict-pl-pl
       - name: Run cspell
         run: |
           cspell --config cspell.config.yaml "**/*.{md,html,js,ts,css,yaml}" --no-progress --language-id=en,pl
