@@ -1,0 +1,22 @@
+version: "0.2"
+language: "en,pl"
+dictionaries:
+  - en_US
+  - pl_PL
+ignorePaths:
+  - ".git/**"
+  - "*.min.js"
+  - "*.min.css"
+  - "public/**"
+  - "resources/**"
+  - "node_modules/**"
+  - "themes/PaperMod/i18n/*.yaml"
+  - "config/_default/config.yaml"
+words:
+  - Małachowski
+  - kacpermalachowski
+  - github
+  - linkedin
+  - stackoverflow
+  - TVDG
+  - Pozdro
