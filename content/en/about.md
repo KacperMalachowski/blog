@@ -35,7 +35,7 @@ Outside of tech, I really value nature. I love hopping on a bike or heading into
 
 ## What do I stand for?
 
-I try to live by values that are well captured in a Polish scouting song called “Harcerskie Ideały” (Scout Ideals). Even though my personal views are progressive and libertarian, I care deeply about principles like honesty, responsibility, respect, solidarity, and service. That may sound lofty, but for me, it's about simple rules that help me make good choices – in both work and life.
+I hold dear values like honesty, responsibility, respect, solidarity, and a willingness to serve others. These ideals, beautifully expressed in the old Polish scouting song "Harcerskie Ideały", resonate deeply with me. I combine them with a progressive, freedom-oriented worldview – grounded in equality, openness, and respect for individual liberty. I believe you can stay true to core principles while being socially conscious and inclusive.
 
 I believe in personal freedom. As long as someone isn’t hurting others, I don’t interfere in their life. I try to stay open-minded, curious, and empathetic. It doesn’t always work out – but I keep trying.
 

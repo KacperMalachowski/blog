@@ -35,7 +35,7 @@ Poza technologią cenię też kontakt z naturą. Gdy tylko mogę, wsiadam na row
 
 ## Jakie wartości wyznaję?
 
-W życiu kieruję się wartościami, które kiedyś pięknie opisała harcerska piosenka „Harcerskie Ideały”. Choć moje poglądy są raczej lewicowe i wolnościowe, to bliskie są mi pojęcia takie jak uczciwość, odpowiedzialność, szacunek, braterstwo czy służba. To może brzmieć górnolotnie, ale dla mnie to proste zasady, które pomagają podejmować dobre decyzje – i w pracy, i w życiu prywatnym.
+Wyznaję wartości takie jak uczciwość, odpowiedzialność, szacunek, braterstwo i gotowość do działania na rzecz innych. Bliskie są mi ideały, które kiedyś pięknie opisała piosenka „Harcerskie Ideały”. Łączę je z lewicowym, wolnościowym podejściem do świata – opartym na równości, otwartości i szacunku dla wolności jednostki. Wierzę, że można być jednocześnie wrażliwym społecznie i wiernym zasadom.
 
 Wierzę w wolność jednostki. Dopóki ktoś nie robi krzywdy drugiemu człowiekowi, nie wtrącam się w jego życie. Staram się być otwarty, ciekawy i empatyczny. Nie zawsze się udaje – ale próbuję.
 
