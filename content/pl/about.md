@@ -1,11 +1,11 @@
 ---
 title: "O mnie"
 translationKey: "about-me"
+description: "Cześć! Mam na imię Kacper i na co dzień pracuję jako inżynier DevOps w dużej, międzynarodowej korporacji. To dość pojemne określenie, ale najprościej mówiąc: zajmuję się automatyzacją, zarządzaniem infrastrukturą i budowaniem środowisk, które wspierają pracę zespołów developerskich."
+layout: "about"
 ---
 
-## Kim jestem?
-
-Cześć! Mam na imię Kacper i na co dzień pracuję jako inżynier DevOps w dużej, międzynarodowej korporacji. To dość pojemne określenie, ale najprościej mówiąc: zajmuję się automatyzacją, zarządzaniem infrastrukturą i budowaniem środowisk, które wspierają pracę zespołów developerskich. W praktyce oznacza to grzebanie w konfiguracjach, pisanie skryptów, rozwiązywanie problemów, dbanie o niezawodność systemów i ciągłe ulepszanie procesów.
+W praktyce oznacza to grzebanie w konfiguracjach, pisanie skryptów, rozwiązywanie problemów, dbanie o niezawodność systemów i ciągłe ulepszanie procesów.
 
 Zawodowo krążę wokół tematów takich jak CI/CD, konteneryzacja, orkiestracja, monitoring, zarządzanie konfiguracją czy provisioning. A wszystko to często z poziomu terminala, bo lubię mieć pełną kontrolę i wiedzieć, co dzieje się „pod maską”.
 

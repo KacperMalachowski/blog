@@ -1,11 +1,10 @@
 ---
 title: "About Me"
 translationKey: "about-me"
+description: "Hi! My name is Kacper, and I work as a DevOps engineer in a large international corporation. It's a broad term, but simply put: I focus on automation, infrastructure management, and building environments that support development teams."
 ---
 
-## Who am I?
-
-Hi! My name is Kacper, and I work as a DevOps engineer at a large international corporation. It's a broad term, but in simple words: I deal with automation, infrastructure management, and building environments that support development teams. In practice, that means tweaking configurations, writing scripts, solving problems, ensuring system reliability, and constantly improving processes.
+In practice, that means tweaking configurations, writing scripts, solving problems, ensuring system reliability, and constantly improving processes.
 
 Professionally, I orbit around topics like CI/CD, containerization, orchestration, monitoring, configuration management, and provisioning. Much of it happens in the terminal, because I like to know exactly what's going on under the hood.
 
