@@ -11,7 +11,7 @@ Zawodowo krążę wokół tematów takich jak CI/CD, konteneryzacja, orkiestracj
 
 ## Skąd się wziąłem w IT?
 
-Moja historia z technologią zaczęła się dość nietypowo – od modowania gry Minecraft. Szczególnie zafascynował mnie mod ComputerCraft, który pozwalał programować w języku Lua wirtualne komputery w świecie gry. Dla wielu dzieciaków to była zabawa – dla mnie to był pierwszy kontakt z prawdziwym kodem i logicznym myśleniem w kontekście działania systemów.
+Moja historia z technologią zaczęła się dość nietypowo – od modów do gry Minecraft. Szczególnie zafascynował mnie mod ComputerCraft, który pozwalał programować w języku Lua wirtualne komputery w świecie gry. Dla wielu dzieciaków to była zabawa – dla mnie to był pierwszy kontakt z prawdziwym kodem i logicznym myśleniem w kontekście działania systemów.
 
 Nie było jednej osoby, która by mnie zainspirowała. To raczej ciekawość świata napędzała mnie do działania. Od zawsze interesowało mnie, jak coś działa – czy to zabawka, komputer, czy pralka. Naturalnie przeszło to w fascynację komputerami, a później również elektroniką i technologiami IT.
 
