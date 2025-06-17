@@ -23,7 +23,7 @@ W pracy najbardziej cenię sobie możliwość tworzenia rzeczy, które realnie w
 
 Lubię też to, że DevOps łączy wiele kompetencji: programowanie, administrację, sieci, bezpieczeństwo, logikę, dokumentację, a także komunikację z zespołami. To dziedzina dla ludzi ciekawych, elastycznych i gotowych do nauki – bo tu technologia nie stoi w miejscu ani na chwilę.
 
-Szczególne miejsce w moim sercu zajmuje automatyzacja. Nic nie daje mi większej satysfakcji niż moment, w którym coś, co kiedyś zajmowało godziny, dzieje się dziś w kilka minut – i to całkowicie bezobsługowo. Automatyzacja to nie tylko wygoda, ale też jakość, powtarzalność i przewidywalność. A to w IT są rzeczy bezcenne.
+Szczególne miejsce w moim sercu zajmuje automatyzacja. Nic nie daje mi większej satysfakcji niż moment, w którym coś, co kiedyś zajmowało godziny, dzieje się dziś w kilka minut – i to całkowicie bez obsługi. Automatyzacja to nie tylko wygoda, ale też jakość, powtarzalność i przewidywalność. A to w IT są rzeczy bezcenne.
 
 ## Co robię po pracy?
 
