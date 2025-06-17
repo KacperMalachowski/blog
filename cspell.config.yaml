@@ -10,7 +10,7 @@ ignorePaths:
   - "public/**"
   - "resources/**"
   - "node_modules/**"
-  - "themes/PaperMod/i18n/*.yaml"
+  - "themes/PaperMod/**/*"
   - "config/_default/config.yaml"
 words:
   - Małachowski
