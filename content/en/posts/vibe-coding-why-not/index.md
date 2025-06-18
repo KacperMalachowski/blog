@@ -4,6 +4,7 @@ date: 2025-06-18
 description: Recently, I had the chance to quickly build a bingo app for a party. In this post, I’ll talk about how vibe coding can be an effective method for building applications in a short amount of time.
 cover: 
   image: images/cover.png
+  relative: true
 tags:
   - vibe coding
   - programming

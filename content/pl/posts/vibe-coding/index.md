@@ -4,6 +4,7 @@ date: 2025-06-18
 description: Ostatnio miałem okazję zrobić na szybko aplikację do bingo, która miała być użyta na imprezie. W tym wpisie opowiem o tym, jak vibe coding może być skuteczną metodą tworzenia aplikacji w krótkim czasie.
 cover: 
   image: images/cover.png
+  relative: true
 tags:
   - vibe coding
   - programowanie

@@ -54,7 +54,7 @@ params:
 pygmentsUseClasses: true
 
 permalinks:
-  posts: /:year/:month/:slug/
+  posts: /posts/:slug/
   pages: /:slug/
 
 markup:

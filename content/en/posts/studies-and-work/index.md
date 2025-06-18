@@ -4,6 +4,7 @@ date: 2025-06-07
 description: "My beginnings in IT: how it started, how I combined studies with work, why the attitude of lecturers is sometimes wrong, and how to improve it ;)."
 cover: 
   image: images/cover.png
+  relative: true
 tags:
   - studies
   - work
