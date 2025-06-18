@@ -2,6 +2,8 @@
 title: Studia i studia, a potem praca
 date: 2025-06-07
 description: Moje początki w IT, czyli jak to się zaczęło oraz jak łączyłem studia z pracą oraz dlaczego podejscie wykładowców jest czasami złe. I jak to poprawić ;).
+cover: 
+  image: images/cover.png
 tags:
   - studia
   - praca
