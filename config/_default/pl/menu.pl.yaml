@@ -1,17 +1,17 @@
 main:
   - identifier: posts
     name: Blog
-    url: /posts/
+    url: posts
     weight: 30
   - identifier: projects
     name: Projekty
-    url: /projects/
+    url: projects
     weight: 30
   - identifier: about
     name: O mnie
-    url: /about/
+    url: about
     weight: 50
   - identifier: archives
     name: Archiwum
-    url: /archives/
+    url: archives
     weight: 60

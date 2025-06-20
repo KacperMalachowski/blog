@@ -20,9 +20,9 @@ params:
     imageTitle: "Kacper Małachowski"
     buttons:
       - name: Posty
-        url: "/posts/"
+        url: "posts"
       - name: Tagi
-        url: "/tags/"
+        url: "tags"
 
   editPost:
     URL: https://github.com/KacperMalachowski/blog/content
