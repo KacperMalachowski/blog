@@ -11,6 +11,8 @@ tags:
   - informatyka
   - programowanie
   - początki
+aliases:
+ - /2025/06/studia-i-studia-a-potem-praca
 ---
 
 W 2020 roku ukończyłem liceum na kierunku humanistycznym, dokładnie na profilu dziennikarskim. Jednak już w 3 klasie okazało się, że lokalna telewizja zwija działalność. Byłem zdziwiony, bo uważam współpracę z tamtejszymi dziennikarzami za bardzo cenną i bardzo dobrą. Pozdrawiam z tego miejsca całą ekipę stojącą wtedy za TVDG ;).

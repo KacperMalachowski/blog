@@ -11,6 +11,8 @@ tags:
   - computer science
   - programming
   - beginnings
+aliases:
+  - /2025/06/studies-and-studies-then-work
 ---
 
 In 2020, I graduated from high school with a humanities profile, specifically in journalism. However, in my third year, the local TV station shut down. I was surprised, as I considered my cooperation with the journalists there to be very valuable and positive. Greetings to the whole team behind TVDG at that time ;).

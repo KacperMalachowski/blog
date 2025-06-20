@@ -11,6 +11,8 @@ tags:
   - kreatywność
   - produktywność
   - technologia
+aliases:
+ - /2025/06/vibe-coding-czyli-czemu-nie
 ---
 
 Dzięki wykorzystaniu AI udało mi się stworzyć w pełni funkcjonalną aplikację w zaledwie godzinę. Przy jej tworzeniu wykorzystałem głównie Copilota od GitHuba i GPT-4.1. Aplikacja działa, jest responsywna i posiada wszystkie funkcje, które były potrzebne. Efekt tej pracy możecie zobaczyć na stronie [kacpermalachowski.github.io/bingo-app](https://kacpermalachowski.github.io/bingo-app).
