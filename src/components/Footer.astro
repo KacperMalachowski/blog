@@ -1,0 +1,30 @@
+---
+const socialLinks = [
+  { href: 'https://github.com/KacperMalachowski', label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/kacper-małachowski-940b6919b', label: 'LinkedIn' },
+  {
+    href: 'https://stackoverflow.com/users/23148781/kacper-ma%C5%82achowski',
+    label: 'Stack Overflow',
+  },
+];
+---
+
+<footer class="border-t border-zinc-200 dark:border-zinc-800 mt-auto">
+  <div
+    class="max-w-3xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500 dark:text-zinc-400"
+  >
+    <p>© {new Date().getFullYear()} Kacper Małachowski</p>
+    <div class="flex gap-6">
+      {socialLinks.map(link => (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>
