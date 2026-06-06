@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPosts } from '../lib/notion';
+
+const posts = await getPosts();
+const latest = posts.slice(0, 5);
+---
+
+<Layout title="Kacper Małachowski">
+  <Header />
+  <main class="max-w-3xl mx-auto px-4 py-16 w-full flex-1">
+    <section class="mb-16">
+      <h1 class="text-4xl font-semibold mb-4">Cześć, jestem Kacper 👋</h1>
+      <p class="text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xl">
+        Piszę o programowaniu, technologiach i automatyzacji. Skupiam się na praktycznych
+        rozwiązaniach i ciekawych problemach.
+      </p>
+      <div class="flex gap-4 mt-8">
+        <a
+          href="/blog"
+          class="inline-flex items-center px-4 py-2 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-medium hover:opacity-90 transition-opacity"
+        >
+          Blog
+        </a>
+        <a
+          href="https://github.com/KacperMalachowski"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-4 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 text-sm font-medium hover:border-zinc-400 dark:hover:border-zinc-500 transition-colors"
+        >
+          GitHub
+        </a>
+      </div>
+    </section>
+
+    {latest.length > 0 && (
+      <section>
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-1">
+          Ostatnie wpisy
+        </h2>
+        {latest.map(post => <PostCard post={post} />)}
+        {posts.length > 5 && (
+          <div class="mt-8">
+            <a
+              href="/blog"
+              class="text-sm text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
+            >
+              Zobacz wszystkie wpisy →
+            </a>
+          </div>
+        )}
+      </section>
+    )}
+  </main>
+  <Footer />
+</Layout>
