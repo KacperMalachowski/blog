@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts } from '../../lib/notion';
+
+const posts = await getPosts();
+---
+
+<Layout
+  title="Blog | Kacper Małachowski"
+  description="Wpisy o programowaniu, technologiach i automatyzacji"
+>
+  <Header />
+  <main class="max-w-3xl mx-auto px-4 py-12 w-full flex-1">
+    <h1 class="text-3xl font-semibold mb-2">Blog</h1>
+    <p class="text-sm text-zinc-400 dark:text-zinc-500 mb-10">
+      {posts.length} {posts.length === 1 ? 'wpis' : posts.length < 5 ? 'wpisy' : 'wpisów'}
+    </p>
+    {posts.length === 0 ? (
+      <p class="text-zinc-400">Brak opublikowanych wpisów.</p>
+    ) : (
+      posts.map(post => <PostCard post={post} />)
+    )}
+  </main>
+  <Footer />
+</Layout>
